@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   map_error_pt_ii.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/04 22:26:04 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 18:57:08 by myoshika         ###   ########.fr       */
+/*   Created: 2022/09/06 20:42:10 by myoshika          #+#    #+#             */
+/*   Updated: 2022/09/06 22:07:47 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_err_and_exit(char *err_message)
+void	put_map_error_and_exit(char *error_msg, t_game *info)
 {
-	ft_printf("Error\n%s", err_message);
+	size_t	i;
+
+	ft_printf("Error\n%s", error_msg);
+	i = 0;
+	if (info->map)
+		while (info->map[i] != NULL)
+			free(info->map[i++]);
+	free(info->map);
 	exit(EXIT_SUCCESS);
 }
 
-void	check_args(int argc, char **argv)
+bool	check_for_valid_path(, info)
 {
-	char	*pointer_to_dot;
+	
+}
 
-	if (argc != 2)
-		print_err_and_exit("invalid arguments");
-	if (!ft_strcmp(argv[0], "./so_long"))
-		print_err_and_exit("invalid arguments");
-	pointer_to_dot = ft_strchr(argv[1], '.');
-	if (pointer_to_dot)
-		if (!ft_strcmp(pointer_to_dot, ".ber"))
-			print_err_and_exit("map does not use .ber");
+bool	check_for_walls(char **map, t_game *info)
+{
+	size_t	i;
+	
+	while (*map[i] != '\0')
+		if (*map[i++] != '1')
 }
