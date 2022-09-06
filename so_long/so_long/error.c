@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 22:26:04 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 15:36:46 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:58:11 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_err_and_exit(char *err_message)
 {
-	ft_printf("Error: %s", err_message);
+	ft_printf("Error\n%s", err_message);
 	exit(EXIT_SUCCESS);
 }
 
@@ -23,9 +23,9 @@ void	check_args(int argc, char **argv)
 	char	*pointer_to_dot;
 
 	if (argc != 2)
-		print_err_and_exit("wrong arguments");
+		print_err_and_exit("invalid arguments");
 	if (!ft_strcmp(argv[0], "./so_long"))
-		print_err_and_exit("wrong arguments");
+		print_err_and_exit("invalid arguments");
 	pointer_to_dot = ft_strchr(argv[1], '.');
 	if (pointer_to_dot)
 		if (!ft_strcmp(pointer_to_dot, ".ber"))
@@ -45,7 +45,11 @@ bool	check_map_shape(char **map)
 	first_line_len = ft_strlen(*map); //do i need to null guard?
 	while (++(*map) != NULL)
 	{
-		current_line_len = ft_strlen(*map)
+		current_line_len = ft_strlen(*map);
+		if (current_line_len != first_line_len)
+		{
+			
+		}
 	}
 	return (true);
 }
@@ -55,13 +59,13 @@ void	check_map_validity(t_game *info)
 	size_t	i;
 
 	if (!info->map)
-		ft_printf("Error: memory allocation error");
+		ft_printf("Error\nmemory allocation error");
 	else if (!check_map_shape(info->map))
-		ft_printf("Error: invalid map shape");
+		ft_printf("Error\ninvalid map shape");
 	else if (!check_map_format(info->map))
 		break ;
 	else if (!check_for_valid_path(info->map))
-		ft_printf("Error: map does not contain valid path to exit");
+		ft_printf("Error\nmap does not contain valid path to exit");
 	else
 		return ;
 	i = 0;
