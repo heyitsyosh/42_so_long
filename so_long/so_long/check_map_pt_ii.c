@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_error_pt_ii.c                                  :+:      :+:    :+:   */
+/*   check_map_pt_ii.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:42:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 22:07:47 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/08 21:58:47 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,29 @@ void	put_map_error_and_exit(char *error_msg, t_game *info)
 	exit(EXIT_SUCCESS);
 }
 
-bool	check_for_valid_path(, info)
+bool	check_if_rectangle(t_game *info)
 {
-	
+	if (info->map_height == info->map_width)
+		return (false);
+	return (true);
 }
 
 bool	check_for_walls(char **map, t_game *info)
 {
 	size_t	i;
-	
-	while (*map[i] != '\0')
-		if (*map[i++] != '1')
+
+	i = 0;
+	while (**map != '\0')
+		if (**map++ != '1')
+			return (false);
+	while (*map || i != info->map_height)
+	{
+		if (*map[0] != '1' && *map[info->map_width] != '1')
+			return (false);
+		i++;
+		map++;
+	}
+	while (**map != '\0')
+		if (**map++ != '1')
+			return (false);
 }
