@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:57:14 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 22:14:05 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/08 21:05:54 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char	*parse_line_till_nl(char *line, t_game *info)
 		if (info->map_width != i || info->map_width != i + 1)
 			return (NULL);
 	else
-		info->map_width = i; //does i include the irrelevant character or not
+		info->map_width = i;
 	return (line + i);
 }
 
@@ -87,9 +87,11 @@ void	check_map_validity(t_game *info)
 	init_struct(info);
 	if (info->map)
 		parse_map_ret = parse_map(info->map, info);
+	if (info->map_height == 0)
+		print_err_and_exit("empty file", info);
 	if (!info->map || parse_map_ret == MALLOC_FAIL)
 		put_map_error_and_exit("memory allocation error", info);
-	else if (parse_map_ret == WRONG_MAP_SIZE)
+	else if (parse_map_ret == WRONG_MAP_SIZE || check_if_rectangle(info))
 		put_map_error_and_exit("invalid map size", info);
 	else if (parse_map_ret == INVALID_MAP_FORMATTING)
 		put_map_error_and_exit("invalid map formatting", info);
@@ -102,9 +104,3 @@ void	check_map_validity(t_game *info)
 	else
 		return ;
 }
-
-
-/*
-
-//check return char ** of split. does it include "". does it add "" at end if char sent ends with separator?
-*/

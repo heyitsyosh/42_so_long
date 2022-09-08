@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 14:53:14 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:46:50 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ int	open_map(char *map_file)
 	return (fd);
 }
 
-void	read_map(char *map_file, t_game *info)
+void	read_map(size_t line_count, char *map_file, t_game *info)
 {
 	int		fd;
-	size_t	line_count;
 	char	*line;
 	char	*joined_line;
 
 	fd = open_map(map_file);
 	joined_line = ft_strdup("");
-	line_count = 0;
 	while (joined_line)
 	{
 		line = get_next_line(fd);
@@ -42,7 +40,7 @@ void	read_map(char *map_file, t_game *info)
 		line_count++;
 		free(line);
 	}
-	if (joined_line == NULL)
-		print_err_and_exit("memory allocation error");
+	info->map_height = line_count;
 	info->map = ft_split(joined_line, "\n");
+	free(joined_line);
 }

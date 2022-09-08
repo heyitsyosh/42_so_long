@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 14:46:39 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/08 20:38:55 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_game	info;
 
 	check_args(argc, argv);
-	read_map(argv[1], &info);
+	read_map(0, argv[1], &info);
 	check_map_validity(&info);
 	open_game_window();
 }
