@@ -6,14 +6,22 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/08 20:46:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:23:36 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "../lib/gnl/get_next_line.h"
 
-int	open_map(char *map_file)
+static void	init_struct(t_game *info)
+{
+	info->num_of_collectibles = 0;
+	info->num_of_players = 0;
+	info->num_of_exits = 0;
+	info->map_width = 0;
+	info->map_height = 0;
+}
+
+static int	open_map(char *map_file)
 {
 	int		fd;
 
@@ -23,7 +31,7 @@ int	open_map(char *map_file)
 	return (fd);
 }
 
-void	read_map(size_t line_count, char *map_file, t_game *info)
+void	read_map(char *map_file, t_game *info)
 {
 	int		fd;
 	char	*line;
@@ -37,10 +45,9 @@ void	read_map(size_t line_count, char *map_file, t_game *info)
 		if (!line)
 			break ;
 		joined_line = ft_strjoin_with_free(joined_line, line, FREE_FIRST_PARAM);
-		line_count++;
 		free(line);
 	}
-	info->map_height = line_count;
-	info->map = ft_split(joined_line, "\n");
+	init_struct(info);
+	info->map = ft_split(joined_line, '\n');
 	free(joined_line);
 }
