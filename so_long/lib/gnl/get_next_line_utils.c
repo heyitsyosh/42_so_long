@@ -6,40 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:49:13 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/02 04:00:34 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/10 20:32:33 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_free(char **pointer)
-{
-	if (*pointer)
-	{
-		free(*pointer);
-		*pointer = NULL;
-	}
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s != (char)c)
-		if (*s++ == '\0')
-			return (NULL);
-	return ((char *)s);
-}
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (*(s + len) != '\0')
-		len++;
-	return (len);
-}
-
-static void	ft_strlcpy(char *dst, char *src, size_t dstsize)
+static void	ft_strlcpy_no_ret(char *dst, char *src, size_t dstsize)
 {
 	size_t	i;
 
@@ -66,12 +39,12 @@ char	*ft_strjoin_with_free(char *s1, char *s2, int to_free)
 	joined = (char *)malloc(s1_len + s2_len + 1);
 	if (joined != NULL)
 	{
-		ft_strlcpy(joined, s1, s1_len + 1);
-		ft_strlcpy(joined + s1_len, s2, s2_len + 1);
+		ft_strlcpy_no_ret(joined, s1, s1_len + 1);
+		ft_strlcpy_no_ret(joined + s1_len, s2, s2_len + 1);
 	}
 	if (to_free == 1)
-		ft_free(&s1);
+		ft_safe_free(&s1);
 	if (to_free == 2)
-		ft_free(&s2);
+		ft_safe_free(&s2);
 	return (joined);
 }

@@ -6,11 +6,10 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 07:21:17 by myoshika          #+#    #+#             */
-/*   Updated: 2022/08/22 21:35:29 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/09 02:29:36 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 size_t	conversion(const char *specifiers, t_info *info, va_list args)

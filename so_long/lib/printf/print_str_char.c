@@ -6,11 +6,10 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/07 17:21:29 by myoshika          #+#    #+#             */
-/*   Updated: 2022/08/22 15:24:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/09 02:31:31 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
 
 int	print_str(const char *input, size_t len)

@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 00:29:25 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 15:43:42 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/10 20:22:58 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ size_t	ft_strnlen(const char *s, size_t maxlen);
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 int		ft_strcmp(const char *s1, const char *s2);
+void	ft_safe_free(char **pointer);
 
 #endif
