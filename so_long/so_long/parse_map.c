@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 18:57:14 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/11 18:10:59 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/20 18:54:00 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,39 @@ char	*free_and_ret(char **ptr, char *ret)
 	return (ret);
 }
 
-static void	analyze_parsed(size_t i, t_game *g, t_parse *p)
-{
-	if (p->l->current_map_width == 0 && p->map_started)
-		p->map_ended = true;
-	if (!p->after_map)
-		return (INVALID_MAP_FORMATTING);
-	if (m->map_ended == false)
-	{
-		if (g->map_width != 0)
-			if (g->current_map_width != g->map_width)
-				return (WRONG_MAP_SHAPE);
-		g->map_width = g->current_map_width;
-	}
-	else if (m->irrelevant != g->map[i])
-		return (INVALID_MAP_FORMATTING);
-	return (MAP_OK);
-}
+// static int	analyze_parsed(size_t i, t_game *g, t_parse *p)
+// {
+// 	if (p->l->current_map_width == 0 && p->map_started)
+// 		p->map_ended = true;
+// 	if (!p->after_map)
+// 		return (INVALID_MAP_FORMATTING);
+// 	if (p->map_ended == false)
+// 	{
+// 		if (g->map_width != 0)
+// 			if (p->l->current_map_width != g->map_width)
+// 				return (WRONG_MAP_SHAPE);
+// 		g->map_width = p->l->current_map_width;
+// 	}
+// 	else if (m->irrelevant != g->map[i])
+// 		return (INVALID_MAP_FORMATTING);
+// 	return (MAP_OK);
+// }
 
 static int	parse_map(size_t i, t_game *g)
 {
 	t_parse	p;
+	int		map_status;
 
 	while (g->map[i] != NULL)
 	{
-		parse_line(g->map[i], g, &p);
-		analyze_parsed(i, g, &p);
+		map_status = parse_line(g->map[i], g, &p);
+		if (map_status == MAP_OK)
+			map_status = analyze_parsed(i, g, &p);
+		if (map_status != MAP_OK)
+			return (map_status);
 		i++;
 		if (!p.map_ended && g->map[i])
-			g->map_height = i - p.map_started;
+			g->map_height = i - p.col_offset;
 	}
 	return (MAP_OK);
 }

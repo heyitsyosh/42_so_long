@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/11 16:23:36 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/20 18:54:58 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ void	read_map(char *map_file, t_game *info)
 		free(line);
 	}
 	init_struct(info);
-	info->map = ft_split(joined_line, '\n');
-	free(joined_line);
+	// info->map = ft_split(joined_line, '\n');
+	// free(joined_line);
 }
