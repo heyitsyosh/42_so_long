@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/11 18:03:52 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/15 21:47:50 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ typedef struct s_parse{
 	char	*map_as_one_line;
 	bool	map_started;
 	bool	map_ended;
-	size_t	map_offset;
+	size_t	col_offset;
+	size_t	row_offset;
 	t_line	*l;
 }	t_parse;
 typedef struct s_line{

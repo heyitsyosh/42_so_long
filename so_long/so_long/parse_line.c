@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 03:35:38 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/11 18:15:34 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/20 18:56:56 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static char	*before_after_map(char *line)
+static char	*parse_not_map_chars(char *line)
 {
 	const char	*map_chars = "10CEP";
 	size_t		i;
@@ -26,13 +26,12 @@ static char	*before_after_map(char *line)
 		return (line + i);
 }
 
-void	*parse_line(char *line, t_game *g, t_parse *p)
+static char *parse_map_chars(char *line, t_game *g, t_parse *p)
 {
-	size_t		i;
-	const char	*map_chars = "10CEP";
 	char		*current_char;
+	const char	*map_chars = "10CEP";
+	size_t		i;
 
-	p->l->map_start_ptr = before_after_map(line);
 	i = 0;
 	while (p->l->map_start_ptr && *(p->l->map_start_ptr + i))
 	{
@@ -48,8 +47,17 @@ void	*parse_line(char *line, t_game *g, t_parse *p)
 		p->map_started = true;
 		i++;
 	}
-	ft_substr(line, )
-	if (!parse_rest_of_line(line + i))
+	p->l->current_map_width = i;
+}
+
+void	*parse_line(char *line, t_game *g, t_parse *p)
+{
+	p->l->i = 0;
+	p->l->map_start_ptr = parse_not_map_chars(line);
+	if (p->l->map_start_ptr)
+		parse_map_chars();
+	ft_substr(line, i, )
+	if (!parse_not_map_chars(line + i))
 		p->l->map_end_ptr = NULL;
 	p->l->current_map_width = i;
 	return (line + i);

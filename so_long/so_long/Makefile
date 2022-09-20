@@ -1,10 +1,5 @@
 NAME = so_long
 
-LIBFTDIR = ../lib/libft/
-PRINTFDIR = ../lib/printf/
-GNLDIR = ../lib/gnl/
-MLXDIR = ../lib/mlx/
-
 SRCS_ = so_long\
 		check_args\
 		read_map\
@@ -13,6 +8,11 @@ SRCS_ = so_long\
 
 SRCS = $(addsuffix .c, $(SRCS_))
 OBJS = $(SRCS:.c=.o)
+
+LIBFTDIR = ../lib/libft/
+PRINTFDIR = ../lib/printf/
+GNLDIR = ../lib/gnl/
+MLXDIR = ../lib/mlx/
 
 LIBFT = ../lib/libft/libft.a -I ../lib/libft
 FT_PRINTF = ../lib/printf/libftprintf.a -I ../lib/printf
@@ -47,7 +47,7 @@ clean:
 	make clean -C $(MLXDIR)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
