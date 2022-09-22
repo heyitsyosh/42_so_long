@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/15 21:47:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/20 19:25:48 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_game{
 	void	*mlx_id;
 }	t_game;
 typedef struct s_parse{
-	char	*map_as_one_line;
 	bool	map_started;
 	bool	map_ended;
 	size_t	col_offset;
