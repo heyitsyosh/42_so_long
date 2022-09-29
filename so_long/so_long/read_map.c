@@ -6,27 +6,23 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 16:05:10 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/29 00:17:48 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	init_t_game(t_game *g)
+//maybe i dont need to initialize anything in p?
+static void	init_g_and_p(t_parse *p, t_game *g)
 {
 	g->num_of_collectibles = 0;
 	g->num_of_players = 0;
 	g->num_of_exits = 0;
 	g->map_width = 0;
 	g->map_height = 0;
-}
-
-static void	init_t_parse(t_parse *p)
-{
-	p->map_started = false;
+	g->map_error = MAP_OK;
 	p->map_ended = false;
-	// p->col_offset = 0;
-	// p->row_offset = 0;
+	p->col_offset = 0;
 }
 
 static int	open_map(char *map_file)
@@ -39,35 +35,42 @@ static int	open_map(char *map_file)
 	return (fd);
 }
 
-char *skip_before_map(t_parse *p, )
+static char	*read_map_into_line(int fd)
 {
-	
-}
-
-void	read_map(char *map_file, t_game *g)
-{
-	int		fd;
-	int		line_status;
 	char	*line;
 	char	*joined_line;
-	t_parse	p;
 
-	fd = open_map(map_file);
 	joined_line = ft_strdup("");
-	init_t_game(g);
-	init_t_parse(&p);
-	skip_before_map();
 	while (joined_line)
 	{
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		line_status = parse_line(line, g, p);
-		line = extract_line();
 		joined_line = ft_strjoin_with_free(joined_line, line, FREE_FIRST_PARAM);
 		free(line);
 	}
-	skip_after_map();
+	if (!joined_line)
+		print_err_and_exit("malloc error");
+	return (joined_line);
+}
+
+void	get_map(char *map_file, t_game *g)
+{
+	int		fd;
+	int		line_status;
+	char	*joined_line;
+	t_parse	p;
+
+	fd = open_map(map_file);
+	joined_line = read_map_into_line(fd);
+	init_t_and_p(&p, g);
+	if (g->map_error == MAP_OK)
+		skip_before_map(joined_line, &p, g);
+	if (g->map_error == MAP_OK)
+		extract_map(&p, g);
+	if (g->map_error == MAP_OK)
+		skip_after_map(&p, g);
+	free(joined_line);
 }
 
 /*
