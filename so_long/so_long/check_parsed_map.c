@@ -6,29 +6,26 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:42:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/11 03:47:55 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/29 21:31:55 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-bool	check_num_of_cep(t_game *info)
+void	check_num_of_cep(t_game *g)
 {
-	if (info->num_of_collectibles < 1 || info->num_of_exits != 1
-		|| info->num_of_players != 1)
-		return (false);
-	return (true);
+	if (g->num_of_collectibles < 1 || g->num_of_exits != 1
+		|| g->num_of_players != 1)
+		g->map = WRONG_CEP;
 }
 
-bool	check_if_rectangle(t_game *info)
+void	check_if_rectangle(t_game *g)
 {
-	fflush(stdout);
-	if (info->map_height == info->map_width)
-		return (false);
-	return (true);
+	if (g->map_height == g->map_width)
+		g->map_error = WRONG_MAP_SHAPE;
 }
 
-bool	check_for_walls(t_game *info)
+void	check_for_walls(t_game *info)
 {
 	size_t	i;
 
