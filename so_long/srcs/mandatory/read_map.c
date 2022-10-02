@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 04:52:21 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 05:14:15 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	get_map(char *map_file, t_game *g)
 		skip_after_map(&p, g);
 	free(joined_line);
 	check_for_walls(g);
-	check_for_valid_path(g);
+	//check_for_valid_path(g);
 	if (g->map_error != MAP_OK)
 		print_map_error(g);
 }
