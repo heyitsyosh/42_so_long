@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 04:59:01 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 05:14:10 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	extract_map(t_game *g);
 
 void	check_num_of_cep(t_game *info);
 void	check_if_rectangle(t_game *info);
-void	check_for_walls(char *extracted, t_game *g)
+void	check_for_walls(t_game *g);
 
 void	print_err_and_exit(char *err_message);
 
