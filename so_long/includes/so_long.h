@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/30 00:08:24 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 04:59:01 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <stdlib.h>
 #include <stdio.h>
 # include "../lib/mlx/mlx.h"
-# include "../lib/libft/libft.h"
-# include "../lib/printf/ft_printf.h"
-# include "../lib/gnl/get_next_line.h"
+# include "./libft.h"
+# include "./ft_printf.h"
+# include "./get_next_line.h"
 
 # define MAP_OK 1
 # define WRONG_MAP_SHAPE 2
@@ -27,6 +27,8 @@
 # define MALLOC_FAIL 4
 # define NO_MAP 5
 # define WRONG_CEP 6
+# define NO_WALLS 7
+# define NO_VALID_PATH 8
 
 # define PRE 1
 # define POST 2
@@ -47,17 +49,17 @@ typedef struct s_game{
 
 typedef struct s_parse{
 	bool	map_ended;
-	size_t	col_offset; //horizontal orientation
+	size_t	col_offset;
 	size_t	current_map_width;
 	char	*map_start_ptr;
 	char	*map_end_ptr;
 }	t_parse;
 
 typedef struct s_line{
+	char	*current_ln;
 	size_t	pre;
 	size_t	mid;
 	size_t	post;
-	size_t	total;
 }	t_line;
 
 void	check_args(int argc, char **argv);
@@ -65,13 +67,11 @@ void	get_map(char *map_file, t_game *g);
 
 void	skip_before_map(char *joined_line, t_parse *p, t_game *g);
 void	skip_after_map(t_parse *p, t_game *g);
+void	extract_map(t_game *g);
 
-// char	*free_and_ret(char **ptr, char *ret);
-// void	put_map_error_and_exit(char *error_msg, t_game *info);
-
-// bool	check_num_of_cep(t_game *info);
-// bool	check_if_rectangle(t_game *info);
-// bool	check_for_walls(t_game *info);
+void	check_num_of_cep(t_game *info);
+void	check_if_rectangle(t_game *info);
+void	check_for_walls(char *extracted, t_game *g)
 
 void	print_err_and_exit(char *err_message);
 

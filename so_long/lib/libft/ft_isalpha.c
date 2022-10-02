@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 07:36:44 by myoshika          #+#    #+#             */
-/*   Updated: 2022/07/15 08:46:56 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:40:47 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 int	ft_isalpha(int c)
 {

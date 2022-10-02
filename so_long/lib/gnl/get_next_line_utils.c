@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:49:13 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/10 20:32:33 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 05:04:01 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../../includes/get_next_line.h"
 
 static void	ft_strlcpy_no_ret(char *dst, char *src, size_t dstsize)
 {

@@ -6,19 +6,16 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:46:50 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/09 02:31:15 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 05:00:48 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <unistd.h>
 # include <stdbool.h>
 # include <stdarg.h>
-# include <stddef.h>
-# include <limits.h>
-# include "../libft/libft.h"
+# include "./libft.h"
 
 typedef struct s_printfinfo
 {

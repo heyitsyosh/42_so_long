@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/11 03:35:38 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/20 18:56:56 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/01 04:20:00 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*parse_not_map_chars(char *line)
 		return (line + i);
 }
 
-static char *parse_map_chars(char *line, t_game *g, t_parse *p)
+static char	*parse_map_chars(char *line, t_game *g, t_parse *p)
 {
 	char		*current_char;
 	const char	*map_chars = "10CEP";

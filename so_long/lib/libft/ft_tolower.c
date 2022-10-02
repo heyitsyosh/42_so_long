@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 23:20:48 by myoshika          #+#    #+#             */
-/*   Updated: 2022/07/18 04:41:51 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:38:48 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 int	ft_tolower(int c)
 {
