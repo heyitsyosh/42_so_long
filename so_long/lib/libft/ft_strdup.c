@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 03:58:51 by myoshika          #+#    #+#             */
-/*   Updated: 2022/08/17 03:58:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:39:24 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 char	*ft_strdup(const char *s1)
 {

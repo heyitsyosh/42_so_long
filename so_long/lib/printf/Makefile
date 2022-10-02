@@ -12,7 +12,9 @@ SRCS = $(addsuffix .c, $(SRCS_))
 OBJS = $(SRCS:.c=.o)
 
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I libft.h
+INCLUDES = -I ../../includes/libft.h
+
+# **************************************************************************** #
 
 all: $(NAME)
 

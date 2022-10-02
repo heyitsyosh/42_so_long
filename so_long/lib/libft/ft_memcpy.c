@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 23:20:25 by myoshika          #+#    #+#             */
-/*   Updated: 2022/07/20 10:04:43 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:39:59 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

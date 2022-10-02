@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 23:29:05 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/06 14:41:38 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/09/22 22:39:32 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../includes/libft.h"
 
 static size_t	malloc_size(const char *s, char c)
 {
@@ -46,7 +46,7 @@ static int	check_malloc(char **split, int i)
 	return (1);
 }
 
-static void	*create_split(const char *s, char c, char **split, int i)
+static void	*function(const char *s, char c, char **split, int i)
 {
 	size_t	len;
 
@@ -81,6 +81,6 @@ char	**ft_split(const char *s, char c)
 	split = malloc(sizeof(char *) * (malloc_size(s, c) + 1));
 	if (split == NULL)
 		return (NULL);
-	split = create_split(s, c, split, 0);
+	split = function(s, c, split, 0);
 	return (split);
 }
