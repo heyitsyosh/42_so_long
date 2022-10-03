@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:42:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 04:46:04 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:30:12 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 void	check_num_of_cep(t_game *g)
 {
@@ -37,7 +37,7 @@ void	check_basic_requirements(t_game *g)
 		g->map_error = INVALID_MAP_FORMATTING;
 }
 
-void	check_for_walls(char *extracted, t_game *g)
+void	check_for_walls(t_game *g)
 {
 	size_t	i;
 

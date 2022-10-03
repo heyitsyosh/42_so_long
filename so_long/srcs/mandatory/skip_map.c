@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:08:12 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 00:30:16 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:27:54 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 static char	*strrchr_from_ptr(char *end, char *start, int c)
 {
@@ -26,7 +26,7 @@ void	skip_before_map(char *joined_line, t_parse *p, t_game *g)
 	size_t		i;
 
 	i = 0;
-	while (!strchr(map_chars, joined_line[i]))
+	while (!ft_strchr(map_chars, joined_line[i]))
 		i++;
 	if (joined_line[i] == '\0')
 	{

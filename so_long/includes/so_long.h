@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 05:14:10 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:44:00 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include <stdbool.h>
-# include <stdlib.h>
 #include <stdio.h>
 # include "../lib/mlx/mlx.h"
 # include "./libft.h"
@@ -50,7 +49,6 @@ typedef struct s_game{
 typedef struct s_parse{
 	bool	map_ended;
 	size_t	col_offset;
-	size_t	current_map_width;
 	char	*map_start_ptr;
 	char	*map_end_ptr;
 }	t_parse;
@@ -67,11 +65,12 @@ void	get_map(char *map_file, t_game *g);
 
 void	skip_before_map(char *joined_line, t_parse *p, t_game *g);
 void	skip_after_map(t_parse *p, t_game *g);
-void	extract_map(t_game *g);
+void	extract_map(t_parse *p, t_game *g);
 
 void	check_num_of_cep(t_game *info);
 void	check_if_rectangle(t_game *info);
 void	check_for_walls(t_game *g);
+void	check_basic_requirements(t_game *g);
 
 void	print_err_and_exit(char *err_message);
 

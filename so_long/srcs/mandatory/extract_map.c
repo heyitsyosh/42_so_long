@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:59:30 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 03:10:37 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:28:59 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 static void	init_l(t_line *l)
 {
@@ -32,7 +32,7 @@ static size_t	skip_irrelevant(char *ptr, int call, t_parse *p)
 	return (i);
 }
 
-static size_t	parse_map(char *ptr, t_line *l, t_parse *p, t_game *g)
+static size_t	parse_map(char *ptr, t_game *g)
 {
 	const char	*map_chars = "10CEP";
 	char		*current_char;
@@ -63,7 +63,7 @@ static size_t	parse_map(char *ptr, t_line *l, t_parse *p, t_game *g)
 static char	*parse_line(t_line *l, t_parse *p, t_game *g)
 {
 	l->pre = skip_irrelevant(l->current_ln, PRE, p);
-	l->mid = parse_map(l->current_ln + l->pre, l, p, g);
+	l->mid = parse_map(l->current_ln + l->pre, g);
 	l->post = skip_irrelevant(l->current_ln + l->pre + l->mid, POST, p);
 	if (!p->map_ended)
 		if (l->pre != p->col_offset || l->mid != g->map_width)
