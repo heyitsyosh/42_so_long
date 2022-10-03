@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 05:14:15 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 17:27:42 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../includes/so_long.h"
+#include "../../includes/so_long.h"
 
 static void	print_map_error(t_game *g)
 {
@@ -39,7 +39,7 @@ static void	print_map_error(t_game *g)
 		print_err_and_exit("map not playable");
 }
 
-static void	init_g_and_p(t_parse *p, t_game *g)
+static void	init_p_and_g(t_parse *p, t_game *g)
 {
 	g->num_of_collectibles = 0;
 	g->num_of_players = 0;
@@ -83,7 +83,6 @@ static char	*read_map_into_line(int fd)
 void	get_map(char *map_file, t_game *g)
 {
 	int		fd;
-	int		line_status;
 	char	*joined_line;
 	t_parse	p;
 
