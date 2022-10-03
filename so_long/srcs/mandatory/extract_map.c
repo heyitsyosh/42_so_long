@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:59:30 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 17:28:59 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 22:37:54 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,17 @@ static size_t	skip_irrelevant(char *ptr, int call, t_parse *p)
 	i = 0;
 	while (!ft_strchr(map_chars, ptr[i]))
 		i++;
-	if ((ptr[i] == '\n' && call == PRE) || !ptr[i])
+	if (!ptr[i] || (ptr[i] == '\n' && call == PRE))
+	{
 		p->map_ended = true;
+		p->map_end_ptr = ptr + i;
+		printf("[p->map_end_ptr: %d]\n", *p->map_end_ptr == '\0');
+		fflush(stdout);
+	}
 	return (i);
 }
 
-static size_t	parse_map(char *ptr, t_game *g)
+static size_t	parse_map(char *ptr, t_parse *p, t_game *g)
 {
 	const char	*map_chars = "10CEP";
 	char		*current_char;
@@ -54,7 +59,7 @@ static size_t	parse_map(char *ptr, t_game *g)
 	}
 	if (g->map_height == 0)
 		g->map_width = i;
-	else
+	else if (!p->map_ended)
 		if (g->map_width != i)
 			g->map_error = INVALID_MAP_FORMATTING;
 	return (i);
@@ -63,8 +68,10 @@ static size_t	parse_map(char *ptr, t_game *g)
 static char	*parse_line(t_line *l, t_parse *p, t_game *g)
 {
 	l->pre = skip_irrelevant(l->current_ln, PRE, p);
-	l->mid = parse_map(l->current_ln + l->pre, g);
+	l->mid = parse_map(l->current_ln + l->pre, p, g);
 	l->post = skip_irrelevant(l->current_ln + l->pre + l->mid, POST, p);
+	if (*(l->current_ln + l->pre + l->mid + l->post) == '\n')
+		l->post += 1;
 	if (!p->map_ended)
 		if (l->pre != p->col_offset || l->mid != g->map_width)
 			g->map_error = INVALID_MAP_FORMATTING;
@@ -86,6 +93,7 @@ void	extract_map(t_parse *p, t_game *g)
 		current_ln = parse_line(&l, p, g);
 		l.current_ln += l.pre + l.mid + l.post;
 		extracted = ft_strjoin_with_free(extracted, current_ln, 1);
+		free(current_ln);
 		extracted = ft_strjoin_with_free(extracted, "\n", 1);
 	}
 	check_num_of_cep(g);
