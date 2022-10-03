@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 17:16:00 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 22:33:49 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	size_t i = 0;
 	while (g.map[i])
 	{
-		ft_printf("%s\n", g.map[i]);
+		printf("[%s]\n", g.map[i]);
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:08:12 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 17:27:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 19:57:22 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ void	skip_before_map(char *joined_line, t_parse *p, t_game *g)
 		p->col_offset = i;
 	}
 	else
-		p->col_offset = (joined_line + i) - p->map_start_ptr;
+	{
+		p->map_start_ptr += 1;
+		p->col_offset = (joined_line + i) - (p->map_start_ptr + 1);
+	}
 }
 
 void	skip_after_map(t_parse *p, t_game *g)
@@ -50,7 +53,7 @@ void	skip_after_map(t_parse *p, t_game *g)
 	size_t		i;
 
 	i = 0;
-	while (!ft_strchr(map_chars, p->map_end_ptr[i]))
+	while (p->map_end_ptr[i] && !ft_strchr(map_chars, p->map_end_ptr[i]))
 		i++;
 	if (p->map_end_ptr[i] != '\0')
 		g->map_error = INVALID_MAP_FORMATTING;

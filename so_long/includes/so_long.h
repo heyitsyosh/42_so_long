@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 17:44:00 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/03 22:40:50 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct s_game{
 	size_t	num_of_exits;
 	size_t	map_width;
 	size_t	map_height;
+	size_t	player_x;
+	size_t	player_y;
 	int		map_error;
 	void	*mlx_id;
 }	t_game;
