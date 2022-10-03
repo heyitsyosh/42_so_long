@@ -8,30 +8,30 @@ SRCS_ = so_long\
 		check_parsed_map
 #		check_valid_path\
 
+ifeq ($(MAKECMDGOALS),bonus)
+SRCDIR = ./srcs/bonus
+SRCS = $(foreach src,$(SRCS_),$(SRCDIR)/$(src)_bonus.c)
+else
+SRCDIR = ./srcs/mandatory
+SRCS = $(foreach src,$(SRCS_),$(SRCDIR)/$(src).c)
+endif
+
 OBJS = $(SRCS:.c=.o)
 
-OBJDIR = ./srcs/mandatory/objs
-LIBFTDIR = ./lib/libft/
-PRINTFDIR = ./lib/printf/
-GNLDIR = ./lib/gnl/
-MLXDIR = ./lib/mlx/
+LIBFTDIR = ./lib/libft
+PRINTFDIR = ./lib/printf
+GNLDIR = ./lib/gnl
+MLXDIR = ./lib/mlx
 
-FT_PRINTF = ./lib/printf/libftprintf.a
-GNL = ./lib/gnl/get_next_line.a
+FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
+GNL = ./lib/gnl/get_next_line.a 
 
 CFLAGS = -Wall -Wextra -Werror -I ./includes
 
-ifeq ($(MAKECMDGOALS),bonus)
-SRCS = $(foreach src,$(SRCS_),./srcs/bonus/$(src)_bonus.c)
-OBJDIR = ./srcs/bonus/objs
-else
-SRCS = $(foreach src,$(SRCS_),./srcs/mandatory/$(src).c)
-endif
-
 ifeq ($(MAKECMDGOALS),linux)
-MLX = -I ./lib/mlx -L./lib/mlx -lmlx -lXext -lX11
+MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
 else
-MLX = -I ./lib/mlx -L/usr/X11R6/lib -lmlx -lXext -lX11
+MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11
 endif
 
 all: $(NAME)
@@ -40,10 +40,10 @@ $(NAME): $(OBJS)
 	make -C $(PRINTFDIR)
 	make -C $(GNLDIR)
 	make -C $(MLXDIR)
-	$(CC) $(CFLAGS) $(OBJS) $(FT_PRINTF) $(GNL) $(MLX) -o $@
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
-$(OBJDIR)/%.o: %.c
-	$(CC) $(CFLAGS) -o $@ -c $<
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 linux: all
 
