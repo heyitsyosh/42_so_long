@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:59:30 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 22:37:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/05 15:35:40 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../includes/so_long.h"
 
 static void	init_l(t_line *l)
 {
@@ -31,8 +31,6 @@ static size_t	skip_irrelevant(char *ptr, int call, t_parse *p)
 	{
 		p->map_ended = true;
 		p->map_end_ptr = ptr + i;
-		printf("[p->map_end_ptr: %d]\n", *p->map_end_ptr == '\0');
-		fflush(stdout);
 	}
 	return (i);
 }
@@ -54,7 +52,7 @@ static size_t	parse_map(char *ptr, t_parse *p, t_game *g)
 		else if (*current_char == 'E')
 			g->num_of_exits++;
 		else if (*current_char == 'P')
-			g->num_of_players++;
+			player_info_to_g(i, g);
 		i++;
 	}
 	if (g->map_height == 0)
@@ -75,7 +73,8 @@ static char	*parse_line(t_line *l, t_parse *p, t_game *g)
 	if (!p->map_ended)
 		if (l->pre != p->col_offset || l->mid != g->map_width)
 			g->map_error = INVALID_MAP_FORMATTING;
-	g->map_height++;
+	if (l->mid)
+		g->map_height++;
 	return (ft_substr(l->current_ln + l->pre, 0, l->mid));
 }
 

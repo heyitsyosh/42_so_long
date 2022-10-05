@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 22:26:04 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 17:16:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/04 16:33:02 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../includes/so_long.h"
 
 void	print_err_and_exit(char *err_message)
 {

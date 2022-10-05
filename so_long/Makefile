@@ -2,18 +2,19 @@ NAME = so_long
 
 SRCS_ = so_long\
 		check_args\
-		read_map\
+		get_map\
 		skip_map\
 		extract_map\
-		check_parsed_map
+		check_parsed_map\
+		map_parse_utils\
+		start_game\
+		animation
 #		check_valid_path\
 
 ifeq ($(MAKECMDGOALS),bonus)
-SRCDIR = ./srcs/bonus
-SRCS = $(foreach src,$(SRCS_),$(SRCDIR)/$(src)_bonus.c)
+SRCS = $(foreach src,$(SRCS_),./bonus/$(src)_bonus.c)
 else
-SRCDIR = ./srcs/mandatory
-SRCS = $(foreach src,$(SRCS_),$(SRCDIR)/$(src).c)
+SRCS = $(foreach src,$(SRCS_),./mandatory/$(src).c)
 endif
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 22:40:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/05 21:08:59 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,40 @@
 # define NO_WALLS 7
 # define NO_VALID_PATH 8
 
+# define PORTAL_LEFT 'A'
+# define PORTAL_RIGHT 'B'
+# define PORTAL_FRONT 'D'
+
 # define PRE 1
 # define POST 2
 
 # define WIDTH 48
 # define HEIGHT 48
+
+typedef struct s_image{
+	void	*coin_front;
+	void	*coin_left;
+	void	*coin_right;
+	void	*coin_side;
+	void	*empty;
+	void	*wall;
+	void	*exit;
+	void	*p_front;
+	void	*p_left;
+	void	*p_right;
+	void	*portal_front;
+	void	*portal_left;
+	void	*portal_right;
+	void	*i_left;
+	void	*i_right;
+	void	*ii;
+	void	*iii;
+	void	*iv;
+	void	*v;
+	void	*vi;
+	void	*vii;
+	void	*viii;
+}	t_image;
 
 typedef struct s_game{
 	char	**map;
@@ -44,8 +73,11 @@ typedef struct s_game{
 	size_t	map_height;
 	size_t	player_x;
 	size_t	player_y;
+	size_t	total_steps;
 	int		map_error;
+	void	*win_id;
 	void	*mlx_id;
+	t_image	*i;
 }	t_game;
 
 typedef struct s_parse{
@@ -66,8 +98,9 @@ void	check_args(int argc, char **argv);
 void	get_map(char *map_file, t_game *g);
 
 void	skip_before_map(char *joined_line, t_parse *p, t_game *g);
-void	skip_after_map(t_parse *p, t_game *g);
 void	extract_map(t_parse *p, t_game *g);
+void	skip_after_map(t_parse *p, t_game *g);
+void	player_info_to_g(size_t i, t_game *g);
 
 void	check_num_of_cep(t_game *info);
 void	check_if_rectangle(t_game *info);
@@ -75,5 +108,11 @@ void	check_for_walls(t_game *g);
 void	check_basic_requirements(t_game *g);
 
 void	print_err_and_exit(char *err_message);
+void	free_map(t_game *g);
+void	print_map_error(t_game *g);
+
+void	start_game(t_game *g);
+void	images_to_window(t_game *g, size_t y, size_t x);
+void	more_images_to_window(t_game *g, size_t y, size_t x);
 
 #endif

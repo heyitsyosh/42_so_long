@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:42:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 19:40:47 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/05 20:41:17 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../includes/so_long.h"
 
 void	check_num_of_cep(t_game *g)
 {
@@ -53,7 +53,7 @@ void	check_for_walls(t_game *g)
 	i = 1;
 	while (g->map[i] && i < g->map_height - 1)
 	{
-		if (g->map[i][0] != '1' && g->map[i][g->map_width] != '1')
+		if (g->map[i][0] != '1' && g->map[i][g->map_width - 1] != '1')
 			g->map_error = NO_WALLS;
 		i++;
 	}
