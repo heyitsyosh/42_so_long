@@ -1,43 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 19:00:05 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/04 17:54:48 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
-
-static void	print_map_error(t_game *g)
-{
-	size_t	i;
-
-	if (g->map_error == WRONG_MAP_SHAPE)
-		print_err_and_exit("wrong map shape");
-	else if (g->map_error == INVALID_MAP_FORMATTING)
-		print_err_and_exit("invalid map formatting");
-	else if (g->map_error == MALLOC_FAIL)
-		print_err_and_exit("malloc failure");
-	else if (g->map_error == NO_MAP)
-		print_err_and_exit("no map in file");
-	else if (g->map_error == WRONG_CEP)
-		print_err_and_exit("invalid number of player, exit, and collectibles");
-	i = 0;
-	while (g->map[i])
-	{
-		free(g->map[i]);
-		i++;
-	}
-	free(g->map);
-	if (g->map_error == NO_WALLS)
-		print_err_and_exit("no walls");
-	if (g->map_error == NO_VALID_PATH)
-		print_err_and_exit("map not playable");
-}
+#include "../includes/so_long.h"
 
 static void	init_p_and_g(t_parse *p, t_game *g)
 {
@@ -46,6 +19,7 @@ static void	init_p_and_g(t_parse *p, t_game *g)
 	g->num_of_exits = 0;
 	g->map_width = 0;
 	g->map_height = 0;
+	g->total_steps = 0;
 	g->map_error = MAP_OK;
 	p->map_ended = false;
 	p->col_offset = 0;
