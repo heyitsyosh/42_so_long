@@ -6,15 +6,15 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/05 21:08:59 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/06 20:17:27 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include <stdbool.h>
 #include <stdio.h>
+# include <stdbool.h>
 # include "../lib/mlx/mlx.h"
 # include "./libft.h"
 # include "./ft_printf.h"
@@ -38,6 +38,12 @@
 
 # define WIDTH 48
 # define HEIGHT 48
+
+# define ESC 27
+# define W 87
+# define A 65
+# define S 83
+# define D 68
 
 typedef struct s_image{
 	void	*coin_front;
@@ -66,6 +72,7 @@ typedef struct s_image{
 
 typedef struct s_game{
 	char	**map;
+	bool	game_ended;
 	size_t	num_of_collectibles;
 	size_t	num_of_players;
 	size_t	num_of_exits;
@@ -73,6 +80,8 @@ typedef struct s_game{
 	size_t	map_height;
 	size_t	player_x;
 	size_t	player_y;
+	size_t	exit_x;
+	size_t	exit_y;
 	size_t	total_steps;
 	int		map_error;
 	void	*win_id;
@@ -100,7 +109,7 @@ void	get_map(char *map_file, t_game *g);
 void	skip_before_map(char *joined_line, t_parse *p, t_game *g);
 void	extract_map(t_parse *p, t_game *g);
 void	skip_after_map(t_parse *p, t_game *g);
-void	player_info_to_g(size_t i, t_game *g);
+void	info_to_g(char chr, size_t i, t_game *g);
 
 void	check_num_of_cep(t_game *info);
 void	check_if_rectangle(t_game *info);
@@ -114,5 +123,16 @@ void	print_map_error(t_game *g);
 void	start_game(t_game *g);
 void	images_to_window(t_game *g, size_t y, size_t x);
 void	more_images_to_window(t_game *g, size_t y, size_t x);
+
+void	make_images(t_game *g);
+void	make_more_images(t_game *g);
+void	images_to_window(t_game *g, size_t y, size_t x);
+void	more_images_to_window(t_game *g, size_t y, size_t x);
+
+int		animation(t_game *g);
+
+int		process_pressed_key(int keycode, t_game *g);
+
+void	close_game(t_game *g);
 
 #endif

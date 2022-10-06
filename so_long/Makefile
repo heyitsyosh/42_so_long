@@ -8,7 +8,10 @@ SRCS_ = so_long\
 		check_parsed_map\
 		map_parse_utils\
 		start_game\
-		animation
+		images\
+		key_action\
+		animation\
+		close_game
 #		check_valid_path\
 
 ifeq ($(MAKECMDGOALS),bonus)
