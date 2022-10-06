@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:41:53 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/06 19:25:49 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 02:05:53 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,10 @@ int	process_pressed_key(int keycode, t_game *g)
 		update_map('P', 0, 1, g);
 	else if (keycode == D)
 		update_map('R', 1, 0, g);
+	// for (int i = 0; g->map[i]; i++)
+	// {
+	// 	printf("[%s]\n", g->map[i]);	
+	// 	fflush(stdout);
+	// }
 	return (0);
 }
