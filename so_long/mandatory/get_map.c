@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/04 17:54:48 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/06 17:14:20 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	init_p_and_g(t_parse *p, t_game *g)
 {
+	g->game_ended = false;
 	g->num_of_collectibles = 0;
 	g->num_of_players = 0;
 	g->num_of_exits = 0;

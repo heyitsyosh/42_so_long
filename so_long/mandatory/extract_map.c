@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:59:30 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/05 15:35:40 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/06 18:14:15 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ static size_t	parse_map(char *ptr, t_parse *p, t_game *g)
 		else if (*current_char == 'C')
 			g->num_of_collectibles++;
 		else if (*current_char == 'E')
-			g->num_of_exits++;
+			info_to_g(*current_char, i, g);
 		else if (*current_char == 'P')
-			player_info_to_g(i, g);
+			info_to_g(*current_char, i, g);
 		i++;
 	}
 	if (g->map_height == 0)
