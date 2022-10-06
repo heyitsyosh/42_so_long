@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 02:09:02 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 02:53:00 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@
 # define WIDTH 48
 # define HEIGHT 48
 
-# define ESC 27
-# define W 87
-# define A 65
-# define S 83
-# define D 68
+# define ESC 65307
+# define W 119
+# define A 97
+# define S 115
+# define D 100
 
 typedef struct s_image{
 	void	*coin_front;
@@ -78,8 +78,8 @@ typedef struct s_game{
 	size_t	num_of_exits;
 	size_t	map_width;
 	size_t	map_height;
-	size_t	player_x;
-	size_t	player_y;
+	size_t	player_x; //vertical
+	size_t	player_y; //horizontal
 	size_t	exit_x;
 	size_t	exit_y;
 	size_t	total_steps;

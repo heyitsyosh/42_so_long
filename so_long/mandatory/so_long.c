@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/06 23:55:03 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 02:52:38 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	main(int argc, char **argv)
 		printf("[%s]\n", g.map[i]);	
 		fflush(stdout);
 	}
+	printf("player_x: %zu, player_y: %zu\n", g.player_x, g.player_y);
+	printf("exit_x: %zu, exit_y: %zu\n", g.exit_x, g.exit_y);
 	start_game(&g);
 	mlx_hook(g.win_id, 2, 1L << 0, &process_pressed_key, &g);
 	//mlx_hook(g.win_id, );
