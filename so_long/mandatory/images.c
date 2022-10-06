@@ -6,11 +6,51 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:34:57 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/06 20:57:31 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/06 21:07:11 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	more_images_to_window(t_game *g, size_t y, size_t x)
+{
+	if (g->map[y][x] == PORTAL_FRONT)
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->portal_front, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == PORTAL_LEFT)
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->portal_left, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == PORTAL_RIGHT)
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->portal_right, x * WIDTH, y * HEIGHT);
+}
+
+void	images_to_window(t_game *g, size_t y, size_t x)
+{
+	if (g->map[y][x] == '1')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->wall, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == '0')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->empty, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == 'C')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->coin_front, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == 'E')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->exit, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == 'P')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->p_front, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == 'L')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->p_left, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == 'R')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->p_right, x * WIDTH, y * HEIGHT);
+	else
+		more_images_to_window(g, y, x);
+}
 
 void	make_images(t_game *g)
 {
@@ -68,44 +108,4 @@ void	make_more_images(t_game *g)
 			"./images/player/disappear/7.xpm", &x, &y);
 	g->i->viii = mlx_xpm_file_to_image(g->mlx_id,
 			"./images/player/disappear/8.xpm", &x, &y);
-}
-
-void	more_images_to_window(t_game *g, size_t y, size_t x)
-{
-	if (g->map[y][x] == PORTAL_FRONT)
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->portal_front, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == PORTAL_LEFT)
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->portal_left, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == PORTAL_RIGHT)
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->portal_right, x * WIDTH, y * HEIGHT);
-}
-
-void	images_to_window(t_game *g, size_t y, size_t x)
-{
-	if (g->map[y][x] == '1')
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->wall, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == '0')
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->empty, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == 'C')
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->coin_front, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == 'E')
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->exit, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == 'P')
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->p_front, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == 'L')
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->p_left, x * WIDTH, y * HEIGHT);
-	else if (g->map[y][x] == 'R')
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->p_right, x * WIDTH, y * HEIGHT);
-	else
-		more_images_to_window(g, y, x);
 }
