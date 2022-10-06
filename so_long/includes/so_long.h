@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 02:53:00 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 04:11:57 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 #include <stdio.h>
-# include <stdbool.h>
 # include "../lib/mlx/mlx.h"
 # include "./libft.h"
 # include "./ft_printf.h"
@@ -73,13 +72,14 @@ typedef struct s_image{
 typedef struct s_game{
 	char	**map;
 	bool	game_ended;
+	bool	player_moved;
 	size_t	num_of_collectibles;
 	size_t	num_of_players;
 	size_t	num_of_exits;
 	size_t	map_width;
 	size_t	map_height;
-	size_t	player_x; //vertical
-	size_t	player_y; //horizontal
+	size_t	player_x;
+	size_t	player_y;
 	size_t	exit_x;
 	size_t	exit_y;
 	size_t	total_steps;

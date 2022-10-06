@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 02:52:38 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 04:50:40 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,6 @@ int	main(int argc, char **argv)
 
 	check_args(argc, argv);
 	get_map(argv[1], &g);
-	for (int i = 0; g.map[i]; i++)
-	{
-		printf("[%s]\n", g.map[i]);	
-		fflush(stdout);
-	}
-	printf("player_x: %zu, player_y: %zu\n", g.player_x, g.player_y);
-	printf("exit_x: %zu, exit_y: %zu\n", g.exit_x, g.exit_y);
 	start_game(&g);
 	mlx_hook(g.win_id, 2, 1L << 0, &process_pressed_key, &g);
 	//mlx_hook(g.win_id, );
@@ -34,7 +27,6 @@ int	main(int argc, char **argv)
 }
 
 	//mlx_loop_hook(data.mlx, loop_func, &data);
-	// mlx_hook(game.win, 2, 1, move_image, &game);
 	// mlx_hook(game.win, 33, 1L << 17, close_window, &game);
 	// mlx_hook(game.win, 12, 32768L, map_remake, &game);
 //2 12 17 9 33

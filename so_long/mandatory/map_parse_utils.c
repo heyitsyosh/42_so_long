@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:10:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/06 19:17:42 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 03:53:44 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@ void	info_to_g(char chr, size_t i, t_game *g)
 	if (chr == 'P')
 	{
 		g->num_of_players++;
-		g->player_x = g->map_height;
-		g->player_y = i;
+		g->player_y = g->map_height;
+		g->player_x = i;
 	}
 	else
 	{
 		g->num_of_exits++;
-		g->exit_x = g->map_height;
-		g->exit_y = i;
+		g->exit_y = g->map_height;
+		g->exit_x = i;
 	}
 }
 
