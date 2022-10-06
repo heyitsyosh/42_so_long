@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:17:23 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/06 20:29:25 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 02:09:19 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ void	start_game(t_game *g)
 		free_map(g);
 		print_err_and_exit("mlx window failure");
 	}
+	g->i = malloc(sizeof(t_image));
 	make_images(g);
 	make_more_images(g);
 	put_initial_map(g);
