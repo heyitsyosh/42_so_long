@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 20:32:10 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 21:31:02 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static char	*read_map_into_line(int fd)
 		free(line);
 	}
 	if (!joined_line)
-		print_err_and_exit("malloc error");
+		print_err_and_exit("malloc failure");
 	return (joined_line);
 }
 
