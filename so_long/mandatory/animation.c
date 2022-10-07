@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:50:32 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 02:00:20 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 05:30:27 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int	animation(t_game *g)
 			put_disappear_frame(disappear, g);
 		if (disappear == 9000)
 		{
-			ft_printf("---SUCCESS---\n");
-			close_game(g);
+			ft_printf("----SUCCESS----\n");
+			close_game(g, 0);
 		}
 	}
 	else

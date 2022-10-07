@@ -13,10 +13,10 @@ SRCS_ = so_long\
 		key_action_utils\
 		animation\
 		close_game
-#		check_valid_path\
 
 ifeq ($(MAKECMDGOALS),bonus)
 SRCS = $(foreach src,$(SRCS_),./bonus/$(src)_bonus.c)
+SRCS += ./bonus/enemy_bonus.c
 else
 SRCS = $(foreach src,$(SRCS_),./mandatory/$(src).c)
 endif
