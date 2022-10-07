@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:08:12 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 22:28:07 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:54:35 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 static char	*strrchr_from_ptr(char *end, char *start, int c)
 {
 	while (*end != (char)c)
-		if (end-- == start)
+	{
+		if (end == start)
 			return (NULL);
+		end--;
+	}
 	return (end);
 }
 
@@ -33,8 +36,7 @@ void	skip_before_map(char *joined_line, t_parse *p, t_game *g)
 		g->map_error = NO_MAP;
 		return ;
 	}
-	else
-		p->map_start_ptr = strrchr_from_ptr(joined_line + i, joined_line, '\n');
+	p->map_start_ptr = strrchr_from_ptr(joined_line + i, joined_line, '\n');
 	if (!p->map_start_ptr)
 	{
 		p->map_start_ptr = joined_line;
@@ -43,7 +45,7 @@ void	skip_before_map(char *joined_line, t_parse *p, t_game *g)
 	else
 	{
 		p->map_start_ptr += 1;
-		p->col_offset = (joined_line + i) - (p->map_start_ptr + 1);
+		p->col_offset = (joined_line + i) - (p->map_start_ptr);
 	}
 }
 
