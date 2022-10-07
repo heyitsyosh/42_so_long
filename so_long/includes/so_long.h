@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 21:27:23 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 22:00:05 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,8 +111,8 @@ void	extract_map(t_parse *p, t_game *g);
 void	skip_after_map(t_parse *p, t_game *g);
 void	info_to_g(char chr, size_t i, t_game *g);
 
-void	check_num_of_cep(t_game *info);
-void	check_if_rectangle(t_game *info);
+void	check_num_of_cep(t_game *g);
+void	check_if_rectangle(t_game *g);
 void	check_for_walls(t_game *g);
 void	check_basic_requirements(t_game *g);
 
