@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 22:26:04 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 02:10:08 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 05:36:31 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_err_and_exit(char *err_message)
 {
-	ft_printf("Error\n%s", err_message);
+	ft_printf("Error\n%s\n", err_message);
 	exit(EXIT_SUCCESS);
 }
 

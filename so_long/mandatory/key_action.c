@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:41:53 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 22:59:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 05:37:22 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,12 @@ void	put_steps_on_screen(t_game *g)
 {
 	char	*steps;
 
-	steps = ft_itoa(g->total_steps); //malloc error handle
+	steps = ft_itoa(g->total_steps);
+	if (!steps)
+	{
+		ft_printf("Error\nmalloc failure\n");
+		close_game(g, 1);
+	}
 	images_to_window(g, 0, 0);
 	images_to_window(g, 0, 1);
 	images_to_window(g, 0, 2);
@@ -55,8 +60,8 @@ static void	decide_if_put_steps(t_game *g)
 {
 	if (g->total_steps > INT_MAX)
 	{
-		ft_printf("you took too many steps!");
-		close_game(g);
+		ft_printf("you took too many steps!\n");
+		close_game(g, 0);
 	}
 	put_steps_on_screen(g);
 	if (g->player_moved && g->total_steps > 0)
@@ -66,7 +71,7 @@ static void	decide_if_put_steps(t_game *g)
 int	process_pressed_key(int keycode, t_game *g)
 {
 	if (keycode == ESC)
-		close_game(g);
+		close_game(g, 0);
 	if (g->game_ended)
 		return (0);
 	g->player_moved = false;

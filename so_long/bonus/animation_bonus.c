@@ -6,20 +6,28 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:50:32 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 02:10:04 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 05:50:52 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-static void	put_disappear_first_frame(t_game *g)
+static void	put_special_disappear_frame(int frame, t_game *g)
 {
-	if (g->map[g->exit_y][g->exit_x] == PORTAL_RIGHT)
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->i_right, (g->exit_x) * WIDTH, g->exit_y * HEIGHT);
+	if (frame == 9000)
+	{
+		ft_printf("----SUCCESS----\n");
+		close_game(g, 0);
+	}
 	else
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->i_left, g->exit_x * WIDTH, g->exit_y * HEIGHT);
+	{
+		if (g->map[g->exit_y][g->exit_x] == PORTAL_RIGHT)
+			mlx_put_image_to_window(g->mlx_id, g->win_id,
+				g->i->i_right, (g->exit_x) * WIDTH, g->exit_y * HEIGHT);
+		else
+			mlx_put_image_to_window(g->mlx_id, g->win_id,
+				g->i->i_left, g->exit_x * WIDTH, g->exit_y * HEIGHT);
+	}
 }
 
 static void	put_disappear_frame(int frame, t_game *g)
@@ -78,22 +86,22 @@ int	animation(t_game *g)
 {
 	static int	coin;
 	static int	disappear;
+	static int	enemy;
 
 	if (g->game_ended)
 	{
 		disappear++;
-		if (disappear == 1000)
-			put_disappear_first_frame(g);
+		if (disappear == 1000 || disappear == 9000)
+			put_special_disappear_frame(disappear, g);
 		if (disappear != 1000 && disappear % 1000 == 0)
 			put_disappear_frame(disappear, g);
-		if (disappear == 9000)
-		{
-			ft_printf("----SUCCESS----\n");
-			close_game(g);
-		}
 	}
 	else
 	{
+		enemy++;
+		move_enemy(enemy, g);
+		if (enemy == 8000)
+			enemy = 0;
 		coin++;
 		if (coin % 1000 == 0)
 			put_coin_frame(coin, 0, 0, g);

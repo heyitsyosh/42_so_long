@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 05:30:23 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 05:40:51 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
-#include <stdio.h>
 # include "../lib/mlx/mlx.h"
 # include "./libft.h"
 # include "./ft_printf.h"
@@ -67,6 +66,23 @@ typedef struct s_image{
 	void	*vi;
 	void	*vii;
 	void	*viii;
+	void	*s_l_i;
+	void	*s_l_ii;
+	void	*s_l_iii;
+	void	*s_l_iv;
+	void	*s_l_v;
+	void	*s_l_vi;
+	void	*s_l_vii;
+	void	*s_l_viii;
+	void	*s_r_i;
+	void	*s_r_ii;
+	void	*s_r_iii;
+	void	*s_r_iv;
+	void	*s_r_v;
+	void	*s_r_vi;
+	void	*s_r_vii;
+	void	*s_r_viii;
+	void	*enemy;
 }	t_image;
 
 typedef struct s_game{
@@ -78,6 +94,9 @@ typedef struct s_game{
 	size_t	num_of_exits;
 	size_t	map_width;
 	size_t	map_height;
+	int		enemy_step;
+	size_t	enemy_x;
+	size_t	enemy_y;
 	size_t	player_x;
 	size_t	player_y;
 	size_t	exit_x;
@@ -128,6 +147,7 @@ void	put_steps_on_screen(t_game *g);
 
 void	make_images(t_game *g);
 void	make_more_images(t_game *g);
+void	make_enemy_images(t_game *g);
 void	images_to_window(t_game *g, size_t y, size_t x);
 void	more_images_to_window(t_game *g, size_t y, size_t x);
 

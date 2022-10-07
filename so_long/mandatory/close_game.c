@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:03:06 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 21:17:56 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 05:30:45 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	destroy_images(t_game *g)
 	mlx_destroy_image(g->mlx_id, g->i->viii);
 }
 
-int	close_game(t_game *g)
+int	close_game(t_game *g, int exit_status)
 {
 	free_map(g);
 	destroy_images(g);
@@ -46,6 +46,6 @@ int	close_game(t_game *g)
 	mlx_destroy_display(g->mlx_id);
 	free(g->mlx_id);
 	free(g->i);
-	exit(0);
+	exit(exit_status);
 	return (0);
 }
