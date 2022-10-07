@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:50:32 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 05:50:52 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 06:11:36 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ int	animation(t_game *g)
 	else
 	{
 		enemy++;
-		move_enemy(enemy, g);
+		move_enemy(enemy, '0', g);
 		if (enemy == 8000)
 			enemy = 0;
 		coin++;

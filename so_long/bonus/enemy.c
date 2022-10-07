@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:09:44 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 05:58:51 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 06:12:05 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,28 @@ static void	*set_enemy_frame(int frame, t_game *g)
 		return (set_l_enemy_frame(frame, g));
 }
 
-void	move_enemy(int frame, t_game *g)
+void	move_enemy(int frame, char to_switch_with, t_game *g)
 {
-	char	*obstacle;
-
+	if (g->enemy_on_coin)
+		to_switch_with = 'C';
 	if (frame % 1000 == 0)
 	{
-		if (ft_strchr("ABDE1", g->map[g->enemy_y][g->enemy_x + g->enemy_step]))
-			g->enemy_step *= -1;
+		g->enemy_on_coin = false;
+		if (ft_strchr("ABDE1", g->map[g->enemy_y][g->enemy_x + g->e_step]))
+			g->e_step *= -1;
+		else if (ft_strchr("PLR", g->map[g->enemy_y][g->enemy_x + g->e_step]))
+		{
+			ft_printf("--YOU LOST---\n");
+			close_game(g, 0);
+		}
+		else if (g->map[g->enemy_y][g->enemy_x + g->e_step] == 'C')
+			g->enemy_on_coin = true;
 		g->i->enemy = set_enemy_frame(frame, g);
-		g->map[g->enemy_y][g->enemy_x + g->enemy_step] = 'S';
-		g->map[g->enemy_y][g->enemy_x] = '0';
+		g->map[g->enemy_y][g->enemy_x + g->e_step] = 'S';
+		g->map[g->enemy_y][g->enemy_x] = to_switch_with;
 		images_to_window(g, g->player_y, g->player_x);
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->enemy, g->enemy_y * WIDTH, g->enemy_x * HEIGHT);
-		g->enemy_x += g->enemy_step;
+		g->enemy_x += g->e_step;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 05:40:51 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 06:11:56 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,9 @@ typedef struct s_game{
 	size_t	num_of_exits;
 	size_t	map_width;
 	size_t	map_height;
-	int		enemy_step;
+	bool	spawn_fail;
+	bool	enemy_on_coin;
+	int		e_step;
 	size_t	enemy_x;
 	size_t	enemy_y;
 	size_t	player_x;
@@ -152,6 +154,7 @@ void	images_to_window(t_game *g, size_t y, size_t x);
 void	more_images_to_window(t_game *g, size_t y, size_t x);
 
 int		animation(t_game *g);
+void	move_enemy(int frame, char to_switch_with, t_game *g);
 
 int		process_pressed_key(int keycode, t_game *g);
 void	step_to_portal(char player, int y, int x, t_game *g);
