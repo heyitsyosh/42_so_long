@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 04:11:57 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 21:27:23 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,10 @@ void	free_map(t_game *g);
 void	print_map_error(t_game *g);
 
 void	start_game(t_game *g);
+int		put_full_map(t_game *g);
 void	images_to_window(t_game *g, size_t y, size_t x);
 void	more_images_to_window(t_game *g, size_t y, size_t x);
+void	put_steps_on_screen(t_game *g);
 
 void	make_images(t_game *g);
 void	make_more_images(t_game *g);
@@ -132,7 +134,11 @@ void	more_images_to_window(t_game *g, size_t y, size_t x);
 int		animation(t_game *g);
 
 int		process_pressed_key(int keycode, t_game *g);
+void	step_to_portal(char player, int y, int x, t_game *g);
+char	set_non_player(t_game *g);
+void	move_player(int y, int x, t_game *g);
+char	get_player(char player, t_game *g);
 
-void	close_game(t_game *g);
+int		close_game(t_game *g);
 
 #endif
