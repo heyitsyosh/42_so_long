@@ -10,6 +10,7 @@ SRCS_ = so_long\
 		start_game\
 		images\
 		key_action\
+		key_action_utils\
 		animation\
 		close_game
 #		check_valid_path\

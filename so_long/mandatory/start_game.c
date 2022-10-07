@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:17:23 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 02:37:57 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/07 21:30:04 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-static void	put_initial_map(t_game *g)
+int	put_full_map(t_game *g)
 {
 	size_t	x;
 	size_t	y;
@@ -28,6 +28,8 @@ static void	put_initial_map(t_game *g)
 		}
 		y++;
 	}
+	put_steps_on_screen(g);
+	return (0);
 }
 
 void	start_game(t_game *g)
@@ -45,8 +47,8 @@ void	start_game(t_game *g)
 		free_map(g);
 		print_err_and_exit("mlx window failure");
 	}
-	g->i = malloc(sizeof(t_image));
+	g->i = malloc(sizeof(t_image)); //malloc error handle
 	make_images(g);
 	make_more_images(g);
-	put_initial_map(g);
+	put_full_map(g);
 }
