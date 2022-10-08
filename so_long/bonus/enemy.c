@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:09:44 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 06:12:05 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 22:44:08 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	*set_enemy_frame(int frame, t_game *g)
 
 static void	*set_enemy_frame(int frame, t_game *g)
 {
-	if (g->enemy_step == 1)
+	if (g->e_step == 1)
 	{
 		if (frame == 1000)
 			return (g->i->s_r_i);

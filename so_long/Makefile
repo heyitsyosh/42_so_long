@@ -7,6 +7,7 @@ SRCS_ = so_long\
 		extract_map\
 		check_parsed_map\
 		map_parse_utils\
+		check_valid_path\
 		start_game\
 		images\
 		key_action\

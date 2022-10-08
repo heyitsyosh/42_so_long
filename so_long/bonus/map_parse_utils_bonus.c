@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:10:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 02:10:32 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 00:12:21 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,19 @@ void	info_to_g(char chr, size_t i, t_game *g)
 	}
 }
 
-void	free_map(t_game *g)
+void	free_map(char **map) //does this free the outer pointer?
 {
 	size_t	i;
 
+	if (!map)
+		return ;
 	i = 0;
-	while (g->map[i])
+	while (map[i])
 	{
-		free(g->map[i]);
+		free(map[i]);
 		i++;
 	}
-	free(g->map);
+	free(map);
 }
 
 void	print_map_error(t_game *g)
@@ -53,9 +55,7 @@ void	print_map_error(t_game *g)
 		print_err_and_exit("no map in file");
 	else if (g->map_error == WRONG_CEP)
 		print_err_and_exit("invalid number of player, exit, and collectibles");
-	free_map(g);
+	free_map(g->map);
 	if (g->map_error == NO_WALLS)
 		print_err_and_exit("no walls");
-	if (g->map_error == NO_VALID_PATH)
-		print_err_and_exit("map not playable");
 }

@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:17:23 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 23:50:01 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/08 23:10:12 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	start_game(t_game *g)
 	g->mlx_id = mlx_init();
 	if (!g->mlx_id)
 	{
-		free_map(g);
+		free_map(g->map);
 		print_err_and_exit("mlx connection failure");
 	}
 	g->win_id = mlx_new_window(g->mlx_id, WIDTH * g->map_width,
@@ -45,7 +45,7 @@ void	start_game(t_game *g)
 	g->i = malloc(sizeof(t_image));
 	if (!g->win_id || !g->i)
 	{
-		free_map(g);
+		free_map(g->map);
 		free(g->i);
 		free(g->mlx_id);
 		print_err_and_exit("mlx window failure");
