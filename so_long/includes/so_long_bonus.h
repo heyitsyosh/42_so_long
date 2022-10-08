@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 01:53:04 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 04:05:33 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ void	images_to_window(t_game *g, size_t y, size_t x);
 void	more_images_to_window(t_game *g, size_t y, size_t x);
 
 int		animation(t_game *g);
-void	move_enemy(int frame, char to_switch_with, t_game *g);
+void	move_enemy(int frame, t_game *g);
 
 int		process_pressed_key(int keycode, t_game *g);
 void	step_to_portal(char player, int y, int x, t_game *g);

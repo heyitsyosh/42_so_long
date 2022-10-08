@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:30:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 02:11:43 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 03:22:57 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static void	check_adjacent(size_t y, size_t x, t_game *g)
 		g->enemy_y = y;
 		g->e_step = 1;
 	}
-	printf("g->map[%zu][%zu]", y, x-1);
-	fflush(stdout);
 }
 
 void	spawn_enemy(t_game *g)
@@ -50,7 +48,4 @@ void	spawn_enemy(t_game *g)
 	}
 	if (!g->enemy_spawned)
 		ft_printf("Enemy could not be spawned!\n");
-	printf("\n");
-	for (int i = 0; g->map[i]; i++)
-		printf("[%s]\n", g->map[i]);
 }
