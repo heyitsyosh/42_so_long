@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:09:44 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 02:37:33 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 02:56:19 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ static void	put_enemy_frames(int *delay, char to_switch_with, t_game *g)
 		images_to_window(g, g->enemy_y, g->enemy_x - g->e_step);
 	mlx_put_image_to_window(g->mlx_id, g->win_id,
 		g->i->enemy, g->enemy_x * WIDTH, g->enemy_y * HEIGHT);
+	if (to_switch_with == 'C')
+		g->enemy_on_coin = false;
 }
 
 void	move_enemy(int frame, char to_switch_with, t_game *g)
@@ -88,11 +90,10 @@ void	move_enemy(int frame, char to_switch_with, t_game *g)
 	delay++;
 	if (!g->enemy_spawned)
 		return ;
-	if (g->enemy_on_coin)
-		to_switch_with = 'C';
 	if (frame % 1000 == 0)
 	{
-		g->enemy_on_coin = false;
+		if (g->enemy_on_coin)
+			to_switch_with = 'C';
 		if (ft_strchr("ABDE1", g->map[g->enemy_y][g->enemy_x + g->e_step]))
 			g->e_step *= -1;
 		else if (ft_strchr("PLR", g->map[g->enemy_y][g->enemy_x + g->e_step]))
@@ -100,9 +101,9 @@ void	move_enemy(int frame, char to_switch_with, t_game *g)
 			ft_printf("--YOU LOST---\n");
 			close_game(g, 0);
 		}
-		else if (g->map[g->enemy_y][g->enemy_x + g->e_step] == 'C')
-			g->enemy_on_coin = true;
 		g->i->enemy = set_enemy_frame(frame, g);
 		put_enemy_frames(&delay, to_switch_with, g);
+		if (g->map[g->enemy_y][g->enemy_x + g->e_step] == 'C')
+			g->enemy_on_coin = true;
 	}
 }

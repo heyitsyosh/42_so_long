@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:17:23 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 23:10:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 03:05:12 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	more_images_to_window(t_game *g, size_t y, size_t x)
 	else if (g->map[y][x] == PORTAL_RIGHT)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->portal_right, x * WIDTH, y * HEIGHT);
+	else if (g->map[y][x] == 'S')
+		mlx_put_image_to_window(g->mlx_id, g->win_id,
+			g->i->s_r_i, x * WIDTH, y * HEIGHT);
 }
 
 void	images_to_window(t_game *g, size_t y, size_t x)
