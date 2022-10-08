@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 00:17:04 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:41:22 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static void	init_p_and_g(t_parse *p, t_game *g)
 	g->num_of_exits = 0;
 	g->map_width = 0;
 	g->map_height = 0;
+	g->enemy_on_coin = false;
+	g->enemy_spawned = false;
 	g->total_steps = 0;
 	g->reachable_exit = false;
 	g->reachable_collectibles = 0;

@@ -7,7 +7,7 @@ SRCS_ = so_long\
 		extract_map\
 		check_parsed_map\
 		map_parse_utils\
-		check_valid_path\
+		check_if_playable\
 		start_game\
 		images\
 		key_action\
@@ -17,7 +17,7 @@ SRCS_ = so_long\
 
 ifeq ($(MAKECMDGOALS),bonus)
 SRCS = $(foreach src,$(SRCS_),./bonus/$(src)_bonus.c)
-SRCS += ./bonus/enemy_bonus.c
+SRCS += ./bonus/spawn_enemy_bonus.c ./bonus/enemy_bonus.c
 else
 SRCS = $(foreach src,$(SRCS_),./mandatory/$(src).c)
 endif
@@ -34,11 +34,11 @@ GNL = ./lib/gnl/get_next_line.a
 
 CFLAGS = -Wall -Wextra -Werror -I ./includes
 
-ifeq ($(MAKECMDGOALS),linux)
-MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
-else
-MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11
-endif
+# ifeq ($(MAKECMDGOALS),linux)
+# MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
+# else
+# MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11
+# endif
 
 all: $(NAME)
 
@@ -46,7 +46,8 @@ $(NAME): $(OBJS)
 	make -C $(PRINTFDIR)
 	make -C $(GNLDIR)
 	make -C $(MLXDIR)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
+# $(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<

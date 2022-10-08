@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 00:13:32 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:53:17 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 	check_args(argc, argv);
 	get_map(argv[1], &g);
 	check_if_playable(&g);
+	spawn_enemy(&g);
 	start_game(&g);
 	mlx_hook(g.win_id, 2, 1L << 0, &process_pressed_key, &g);
 	mlx_hook(g.win_id, 12, 1L << 15, &put_full_map, &g);

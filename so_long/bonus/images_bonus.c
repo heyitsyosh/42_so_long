@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:34:57 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 05:00:47 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:43:47 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	make_more_images(t_game *g)
 			"./images/player/disappear/8.xpm", &x, &y);
 }
 
-static void	make_enemy_images(t_game *g)
+static void	make_more_enemy_images(t_game *g)
 {
 	int	x;
 	int	y;
