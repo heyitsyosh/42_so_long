@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:41:53 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 05:37:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 03:09:20 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	check_enemy(int y, int x, t_game *g)
 {
 	if (g->map[g->player_y + y][g->player_x + x] == 'S')
 	{
-		ft_printf("--YOU LOST---\n");
+		ft_printf("---YOU LOST---\n");
 		close_game(g, 0);
 	}
 }
