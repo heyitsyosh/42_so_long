@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 00:10:02 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:53:04 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,15 +95,15 @@ typedef struct s_game{
 	size_t	num_of_exits;
 	size_t	map_width;
 	size_t	map_height;
-	bool	spawn_fail;
-	bool	enemy_on_coin;
-	int		e_step;
-	size_t	enemy_x;
-	size_t	enemy_y;
 	size_t	player_x;
 	size_t	player_y;
 	size_t	exit_x;
 	size_t	exit_y;
+	bool	enemy_on_coin;
+	int		e_step;
+	bool	enemy_spawned;
+	size_t	enemy_x;
+	size_t	enemy_y;
 	size_t	total_steps;
 	bool	reachable_exit;
 	size_t	reachable_collectibles;
@@ -144,6 +144,8 @@ void	check_if_playable(t_game *g);
 void	print_err_and_exit(char *err_message);
 void	free_map(char **map);
 void	print_map_error(t_game *g);
+
+void	spawn_enemy(t_game *g);
 
 void	start_game(t_game *g);
 int		put_full_map(t_game *g);

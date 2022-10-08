@@ -6,13 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:09:44 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 00:32:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 02:37:33 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long_bonus.h"
 
-static void	*set_enemy_frame(int frame, t_game *g)
+static void	*set_l_enemy_frame(int frame, t_game *g)
 {
 	if (frame == 1000)
 		return (g->i->s_l_i);
@@ -30,6 +30,7 @@ static void	*set_enemy_frame(int frame, t_game *g)
 		return (g->i->s_l_vii);
 	else if (frame == 8000)
 		return (g->i->s_l_viii);
+	return (NULL);
 }
 
 static void	*set_enemy_frame(int frame, t_game *g)
@@ -52,13 +53,41 @@ static void	*set_enemy_frame(int frame, t_game *g)
 			return (g->i->s_r_vii);
 		else if (frame == 8000)
 			return (g->i->s_r_viii);
+		else
+			return (NULL);
 	}
 	else
 		return (set_l_enemy_frame(frame, g));
 }
 
+static bool	delay_enemy_movement(int *delay, char to_switch_with, t_game *g)
+{
+	if (*delay == 7000)
+	{
+		g->map[g->enemy_y][g->enemy_x + g->e_step] = 'S';
+		g->map[g->enemy_y][g->enemy_x] = to_switch_with;
+		g->enemy_x += g->e_step;
+		*delay = 0;
+		return (true);
+	}
+	return (false);
+}
+
+static void	put_enemy_frames(int *delay, char to_switch_with, t_game *g)
+{
+	if (delay_enemy_movement(delay, to_switch_with, g))
+		images_to_window(g, g->enemy_y, g->enemy_x - g->e_step);
+	mlx_put_image_to_window(g->mlx_id, g->win_id,
+		g->i->enemy, g->enemy_x * WIDTH, g->enemy_y * HEIGHT);
+}
+
 void	move_enemy(int frame, char to_switch_with, t_game *g)
 {
+	static int	delay;
+
+	delay++;
+	if (!g->enemy_spawned)
+		return ;
 	if (g->enemy_on_coin)
 		to_switch_with = 'C';
 	if (frame % 1000 == 0)
@@ -74,11 +103,6 @@ void	move_enemy(int frame, char to_switch_with, t_game *g)
 		else if (g->map[g->enemy_y][g->enemy_x + g->e_step] == 'C')
 			g->enemy_on_coin = true;
 		g->i->enemy = set_enemy_frame(frame, g);
-		g->map[g->enemy_y][g->enemy_x + g->e_step] = 'S';
-		g->map[g->enemy_y][g->enemy_x] = to_switch_with;
-		images_to_window(g, g->player_y, g->player_x);
-		mlx_put_image_to_window(g->mlx_id, g->win_id,
-			g->i->enemy, g->enemy_y * WIDTH, g->enemy_x * HEIGHT);
-		g->enemy_x += g->e_step;
+		put_enemy_frames(&delay, to_switch_with, g);
 	}
 }
