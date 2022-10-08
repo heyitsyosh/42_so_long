@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 05:30:23 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 00:07:11 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ typedef struct s_image{
 
 typedef struct s_game{
 	char	**map;
+	char	**map_dup;
 	bool	game_ended;
 	bool	player_moved;
 	size_t	num_of_collectibles;
@@ -83,6 +84,8 @@ typedef struct s_game{
 	size_t	exit_x;
 	size_t	exit_y;
 	size_t	total_steps;
+	bool	reachable_exit;
+	size_t	reachable_collectibles;
 	int		map_error;
 	void	*win_id;
 	void	*mlx_id;
@@ -103,6 +106,10 @@ typedef struct s_line{
 	size_t	post;
 }	t_line;
 
+typedef struct s_search{
+	
+}	t_search;
+
 void	check_args(int argc, char **argv);
 void	get_map(char *map_file, t_game *g);
 
@@ -115,9 +122,10 @@ void	check_num_of_cep(t_game *g);
 void	check_if_rectangle(t_game *g);
 void	check_basic_requirements(t_game *g);
 void	check_for_walls(t_game *g);
+void	check_if_playable(t_game *g);
 
 void	print_err_and_exit(char *err_message);
-void	free_map(t_game *g);
+void	free_map(char **map);
 void	print_map_error(t_game *g);
 
 void	start_game(t_game *g);
