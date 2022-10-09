@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:34:57 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 01:43:47 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:14:59 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ static void	make_more_enemy_images(t_game *g)
 	g->i->s_r_viii = mlx_xpm_file_to_image(g->mlx_id,
 			"./images/enemy/snake_r_8.xpm", &x, &y);
 }
-
 
 void	make_enemy_images(t_game *g)
 {

@@ -6,11 +6,26 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:10:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 00:00:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:16:16 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+void	split_extracted_line(char *extracted, t_game *g)
+{
+	if (g->map_error == MAP_OK)
+	{	
+		g->map = ft_split(extracted, '\n');
+		g->map_dup = ft_split(extracted, '\n');
+		if (!g->map || !g->map_dup)
+		{
+			free_map(g->map);
+			free_map(g->map_dup);
+			g->map_error = MALLOC_FAIL;
+		}
+	}
+}
 
 void	info_to_g(char chr, size_t i, t_game *g)
 {
