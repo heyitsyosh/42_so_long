@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 16:17:51 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/10 03:11:08 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include "../lib/mlx/mlx.h"
-# include "./libft.h"
 # include "./ft_printf.h"
 # include "./get_next_line.h"
 
