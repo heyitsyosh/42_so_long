@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 16:11:58 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:17:44 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void	get_map(char *map_file, t_game *g);
 
 void	skip_before_map(char *joined_line, t_parse *p, t_game *g);
 void	extract_map(t_parse *p, t_game *g);
+void	split_extracted_line(char *extracted, t_game *g);
 void	skip_after_map(t_parse *p, t_game *g);
 void	info_to_g(char chr, size_t i, t_game *g);
 
