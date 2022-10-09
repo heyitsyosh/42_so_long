@@ -19,25 +19,25 @@ BONUS_FILES = $(FILES) spawn_enemy enemy
 BONUS_SRCS = $(foreach bonus_src,$(BONUS_FILES),./bonus/$(bonus_src)_bonus.c)
 
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 OS = $(shell uname -s)
 
 ifeq ($(OS),Linux)
-ESC = 65307
-W = 119
-A = 97
-S = 115
-D = 100
-FRAMERATE = 1000
+ESC = ESC=65307
+W = W=119
+A = A=97
+S = S=115
+D = D=100
+FRAMERATE = FRAMERATE=1000
 MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
 else
-ESC = KEY_ESC=53
-W = KEY_W=13
-A = KEY_A=0
-S = KEY_S=1
-D = KEY_D=2
-FRAMERATE = 200
+ESC = ESC=53
+W = W=13
+A = A=0
+S = S=1
+D = D=2
+FRAMERATE = FRAMERATE=200
 MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11
 endif
 
@@ -58,10 +58,10 @@ $(NAME): $(OBJS)
 	make -C $(PRINTFDIR)
 	make -C $(GNLDIR)
 	make -C $(MLXDIR)
-	$(CC) $(CFLAGS) $(DEFINE_KEYS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(DEFINE_KEYS) -c -o $@ $<
 
 bonus: all
 
