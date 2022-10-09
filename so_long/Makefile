@@ -1,6 +1,6 @@
 NAME = so_long
 
-SRCS_ = so_long\
+FILES = so_long\
 		check_args\
 		get_map\
 		skip_map\
@@ -14,15 +14,32 @@ SRCS_ = so_long\
 		key_action_utils\
 		animation\
 		close_game
-
-ifeq ($(MAKECMDGOALS),bonus)
-SRCS = $(foreach src,$(SRCS_),./bonus/$(src)_bonus.c)
-SRCS += ./bonus/spawn_enemy_bonus.c ./bonus/enemy_bonus.c
-else
-SRCS = $(foreach src,$(SRCS_),./mandatory/$(src).c)
-endif
+SRCS = $(foreach src,$(FILES),./mandatory/$(src).c)
+BONUS_FILES = $(FILES) spawn_enemy enemy
+BONUS_SRCS = $(foreach bonus_src,$(BONUS_FILES),./bonus/$(bonus_src)_bonus.c)
 
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS
+
+OS = $(shell uname -s)
+
+ifeq ($(OS),Linux)
+ESC = 65307
+W = 119
+A = 97
+S = 115
+D = 100
+FRAMERATE = 1000
+MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
+else
+ESC = KEY_ESC=53
+W = KEY_W=13
+A = KEY_A=0
+S = KEY_S=1
+D = KEY_D=2
+FRAMERATE = 200
+MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11
+endif
 
 LIBFTDIR = ./lib/libft
 PRINTFDIR = ./lib/printf
@@ -33,12 +50,7 @@ FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
 GNL = ./lib/gnl/get_next_line.a 
 
 CFLAGS = -Wall -Wextra -Werror -I ./includes
-
-# ifeq ($(MAKECMDGOALS),linux)
-# MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
-# else
-# MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11
-# endif
+DEFINE_KEYS = -D $(ESC) -D $(W) -D $(A) -D $(S) -D $(D) -D $(FRAMERATE)
 
 all: $(NAME)
 
@@ -46,13 +58,10 @@ $(NAME): $(OBJS)
 	make -C $(PRINTFDIR)
 	make -C $(GNLDIR)
 	make -C $(MLXDIR)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
-# $(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
+	$(CC) $(CFLAGS) $(DEFINE_KEYS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
-
-linux: all
 
 bonus: all
 
@@ -60,7 +69,7 @@ clean:
 	make clean -C $(PRINTFDIR)
 	make clean -C $(GNLDIR)
 	make clean -C $(MLXDIR)
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	make fclean -C $(PRINTFDIR)

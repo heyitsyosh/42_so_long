@@ -6,14 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 00:07:11 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:45:13 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <stdio.h>
 # include "../lib/mlx/mlx.h"
 # include "./libft.h"
 # include "./ft_printf.h"
@@ -37,12 +36,6 @@
 
 # define WIDTH 48
 # define HEIGHT 48
-
-# define ESC 65307
-# define W 119
-# define A 97
-# define S 115
-# define D 100
 
 typedef struct s_image{
 	void	*coin_front;
@@ -105,10 +98,6 @@ typedef struct s_line{
 	size_t	mid;
 	size_t	post;
 }	t_line;
-
-typedef struct s_search{
-	
-}	t_search;
 
 void	check_args(int argc, char **argv);
 void	get_map(char *map_file, t_game *g);

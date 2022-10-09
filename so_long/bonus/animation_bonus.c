@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:50:32 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 04:05:11 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:33:42 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,25 @@ static void	put_special_disappear_frame(int frame, t_game *g)
 
 static void	put_disappear_frame(int frame, t_game *g)
 {
-	if (frame == 2000)
+	if (frame == FRAMERATE * 2)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->ii, g->exit_x * WIDTH, g->exit_y * HEIGHT);
-	else if (frame == 3000)
+	else if (frame == FRAMERATE * 3)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->iii, g->exit_x * WIDTH, g->exit_y * HEIGHT);
-	else if (frame == 4000)
+	else if (frame == FRAMERATE * 4)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->iv, g->exit_x * WIDTH, g->exit_y * HEIGHT);
-	else if (frame == 5000)
+	else if (frame == FRAMERATE * 5)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->v, g->exit_x * WIDTH, g->exit_y * HEIGHT);
-	else if (frame == 6000)
+	else if (frame == FRAMERATE * 6)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->vi, g->exit_x * WIDTH, g->exit_y * HEIGHT);
-	else if (frame == 7000)
+	else if (frame == FRAMERATE * 7)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->vii, g->exit_x * WIDTH, g->exit_y * HEIGHT);
-	else if (frame == 8000)
+	else if (frame == FRAMERATE * 8)
 		mlx_put_image_to_window(g->mlx_id, g->win_id,
 			g->i->viii, g->exit_x * WIDTH, g->exit_y * HEIGHT);
 }
@@ -64,16 +64,16 @@ static void	put_coin_frame(int frame, size_t y, size_t x, t_game *g)
 		{
 			if (g->map[y][x] == 'C')
 			{
-				if (frame == 1000)
+				if (frame == FRAMERATE)
 					mlx_put_image_to_window(g->mlx_id, g->win_id,
 						g->i->coin_right, x * WIDTH, y * HEIGHT);
-				else if (frame == 2000)
+				else if (frame == FRAMERATE * 2)
 					mlx_put_image_to_window(g->mlx_id, g->win_id,
 						g->i->coin_side, x * WIDTH, y * HEIGHT);
-				else if (frame == 3000)
+				else if (frame == FRAMERATE * 3)
 					mlx_put_image_to_window(g->mlx_id, g->win_id,
 						g->i->coin_left, x * WIDTH, y * HEIGHT);
-				else if (frame == 4000)
+				else if (frame == FRAMERATE * 4)
 					images_to_window(g, y, x);
 			}
 			x++;
@@ -91,21 +91,21 @@ int	animation(t_game *g)
 	if (g->game_ended)
 	{
 		disappear++;
-		if (disappear == 1000 || disappear == 9000)
+		if (disappear == FRAMERATE || disappear == FRAMERATE * 9)
 			put_special_disappear_frame(disappear, g);
-		if (disappear != 1000 && disappear % 1000 == 0)
+		if (disappear != FRAMERATE && disappear % FRAMERATE == 0)
 			put_disappear_frame(disappear, g);
 	}
 	else
 	{
 		enemy++;
 		move_enemy(enemy, g);
-		if (enemy == 8000)
+		if (enemy == FRAMERATE * 8)
 			enemy = 0;
 		coin++;
-		if (coin % 1000 == 0)
+		if (coin % FRAMERATE == 0)
 			put_coin_frame(coin, 0, 0, g);
-		if (coin == 5000)
+		if (coin == FRAMERATE * 5)
 			coin = 0;
 	}
 	return (0);

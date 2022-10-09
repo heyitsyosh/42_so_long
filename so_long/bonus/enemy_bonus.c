@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:09:44 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 04:05:04 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:34:53 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 static void	*set_l_enemy_frame(int frame, t_game *g)
 {
-	if (frame == 1000)
+	if (frame == FRAMERATE)
 		return (g->i->s_l_i);
-	else if (frame == 2000)
+	else if (frame == FRAMERATE * 2)
 		return (g->i->s_l_ii);
-	else if (frame == 3000)
+	else if (frame == FRAMERATE * 3)
 		return (g->i->s_l_iii);
-	else if (frame == 4000)
+	else if (frame == FRAMERATE * 4)
 		return (g->i->s_l_iv);
-	else if (frame == 5000)
+	else if (frame == FRAMERATE * 5)
 		return (g->i->s_l_v);
-	else if (frame == 6000)
+	else if (frame == FRAMERATE * 6)
 		return (g->i->s_l_vi);
-	else if (frame == 7000)
+	else if (frame == FRAMERATE * 7)
 		return (g->i->s_l_vii);
-	else if (frame == 8000)
+	else if (frame == FRAMERATE * 8)
 		return (g->i->s_l_viii);
 	return (NULL);
 }
@@ -37,21 +37,21 @@ static void	*set_enemy_frame(int frame, t_game *g)
 {
 	if (g->e_step == 1)
 	{
-		if (frame == 1000)
+		if (frame == FRAMERATE)
 			return (g->i->s_r_i);
-		else if (frame == 2000)
+		else if (frame == FRAMERATE * 2)
 			return (g->i->s_r_ii);
-		else if (frame == 3000)
+		else if (frame == FRAMERATE * 3)
 			return (g->i->s_r_iii);
-		else if (frame == 4000)
+		else if (frame == FRAMERATE * 4)
 			return (g->i->s_r_iv);
-		else if (frame == 5000)
+		else if (frame == FRAMERATE * 5)
 			return (g->i->s_r_v);
-		else if (frame == 6000)
+		else if (frame == FRAMERATE * 6)
 			return (g->i->s_r_vi);
-		else if (frame == 7000)
+		else if (frame == FRAMERATE * 7)
 			return (g->i->s_r_vii);
-		else if (frame == 8000)
+		else if (frame == FRAMERATE * 8)
 			return (g->i->s_r_viii);
 		else
 			return (NULL);
@@ -65,7 +65,7 @@ static bool	delay_enemy_movement(int *delay, t_game *g)
 	char	to_switch_with;
 
 	to_switch_with = '0';
-	if (*delay == 7000)
+	if (*delay == FRAMERATE * 7)
 	{
 		if (g->enemy_on_coin)
 			to_switch_with = 'C';
@@ -97,7 +97,7 @@ void	move_enemy(int frame, t_game *g)
 	delay++;
 	if (!g->enemy_spawned)
 		return ;
-	if (frame % 1000 == 0)
+	if (frame % FRAMERATE == 0)
 	{
 		if (ft_strchr("ABDE1", g->map[g->enemy_y][g->enemy_x + g->e_step]))
 			g->e_step *= -1;
