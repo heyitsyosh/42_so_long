@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 04:05:33 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:20:36 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@
 
 # define WIDTH 48
 # define HEIGHT 48
-
-# define ESC 65307
-# define W 119
-# define A 97
-# define S 115
-# define D 100
 
 typedef struct s_image{
 	void	*coin_front;
