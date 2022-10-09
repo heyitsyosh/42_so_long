@@ -19,7 +19,24 @@ BONUS_FILES = $(FILES) spawn_enemy enemy
 BONUS_SRCS = $(foreach bonus_src,$(BONUS_FILES),./bonus/$(bonus_src)_bonus.c)
 
 OBJS = $(SRCS:.c=.o)
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+B_OBJS = $(BONUS_SRCS:.c=.o)
+
+ifeq ($(MAKECMDGOALS),bonus)
+OBJS = $(B_OBJS)
+endif
+
+LIBFTDIR = ./lib/libft
+PRINTFDIR = ./lib/printf
+GNLDIR = ./lib/gnl
+MLXDIR = ./lib/mlx
+
+FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
+GNL = ./lib/gnl/get_next_line.a 
+
+CFLAGS = -Wall -Wextra -Werror -I ./includes
+DEFINE_KEYS = -D $(ESC) -D $(W) -D $(A) -D $(S) -D $(D) -D $(FRAMERATE)
+
+#--------------------------------------------------------------------------#
 
 OS = $(shell uname -s)
 
@@ -41,16 +58,7 @@ FRAMERATE = FRAMERATE=200
 MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11
 endif
 
-LIBFTDIR = ./lib/libft
-PRINTFDIR = ./lib/printf
-GNLDIR = ./lib/gnl
-MLXDIR = ./lib/mlx
-
-FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
-GNL = ./lib/gnl/get_next_line.a 
-
-CFLAGS = -Wall -Wextra -Werror -I ./includes
-DEFINE_KEYS = -D $(ESC) -D $(W) -D $(A) -D $(S) -D $(D) -D $(FRAMERATE)
+#--------------------------------------------------------------------------#
 
 all: $(NAME)
 
@@ -69,7 +77,7 @@ clean:
 	make clean -C $(PRINTFDIR)
 	make clean -C $(GNLDIR)
 	make clean -C $(MLXDIR)
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) $(OBJS) $(B_OBJS)
 
 fclean: clean
 	make fclean -C $(PRINTFDIR)
