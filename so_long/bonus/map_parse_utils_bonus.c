@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:10:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 16:16:39 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/10 04:31:01 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	info_to_g(char chr, size_t i, t_game *g)
 	}
 }
 
-void	free_map(char **map) //does this free the outer pointer?
+void	free_map(char **map)
 {
 	size_t	i;
 
