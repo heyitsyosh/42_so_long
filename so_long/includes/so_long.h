@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/19 16:40:21 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/20 06:30:45 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@
 # include "./get_next_line.h"
 
 # define MAP_OK 1
-# define WRONG_MAP_SHAPE 2
-# define INVALID_MAP_FORMATTING 3
-# define MALLOC_FAIL 4
-# define NO_MAP 5
-# define WRONG_CEP 6
-# define NO_WALLS 7
-# define NO_VALID_PATH 8
+# define INVALID_MAP_FORMATTING 2
+# define MALLOC_FAIL 3
+# define NO_MAP 4
+# define WRONG_CEP 5
+# define NO_WALLS 6
+# define NO_VALID_PATH 7
 
 # define PORTAL_LEFT 'A'
 # define PORTAL_RIGHT 'B'
@@ -108,7 +107,6 @@ void	skip_after_map(t_parse *p, t_game *g);
 void	info_to_g(char chr, size_t i, t_game *g);
 
 void	check_num_of_cep(t_game *g);
-void	check_if_rectangle(t_game *g);
 void	check_basic_requirements(t_game *g);
 void	check_for_walls(t_game *g);
 void	check_if_playable(t_game *g);

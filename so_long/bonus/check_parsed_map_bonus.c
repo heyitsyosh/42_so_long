@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:42:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 02:10:11 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/20 05:20:27 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,6 @@ void	check_num_of_cep(t_game *g)
 	if (g->num_of_collectibles < 1 || g->num_of_exits != 1
 		|| g->num_of_players != 1)
 		g->map_error = WRONG_CEP;
-}
-
-void	check_if_rectangle(t_game *g)
-{	
-	if (g->map_error != MAP_OK)
-		return ;
-	if (g->map_height == g->map_width)
-		g->map_error = WRONG_MAP_SHAPE;
 }
 
 void	check_basic_requirements(t_game *g)
