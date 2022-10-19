@@ -6,14 +6,14 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/15 05:10:23 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:40:21 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../lib/mlx/mlx.h"
+# include "../lib/minilibx-linux/mlx.h"
 # include "./ft_printf.h"
 # include "./get_next_line.h"
 
