@@ -28,7 +28,7 @@ endif
 LIBFTDIR = ./lib/libft
 PRINTFDIR = ./lib/printf
 GNLDIR = ./lib/gnl
-MLXDIR = ./lib/mlx
+MLXDIR = ./lib/minilibx-linux
 
 FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
 GNL = ./lib/gnl/get_next_line.a 
