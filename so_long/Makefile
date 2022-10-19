@@ -47,7 +47,7 @@ A = A=97
 S = S=115
 D = D=100
 FRAMERATE = FRAMERATE=1000
-MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11
+MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11 $(MLXDIR)/libmlx.a
 else
 ESC = ESC=53
 W = W=13
@@ -55,7 +55,7 @@ A = A=0
 S = S=1
 D = D=2
 FRAMERATE = FRAMERATE=200
-MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11 -framework OpenGL -framework Appkit
+MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11 -framework OpenGL -framework Appkit $(MLXDIR)/libmlx_Darwin.a
 endif
 
 #--------------------------------------------------------------------------#
