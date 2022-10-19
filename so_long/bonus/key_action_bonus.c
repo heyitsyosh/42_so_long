@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:41:53 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 03:09:20 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:01:13 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	put_steps_on_screen(t_game *g)
 	images_to_window(g, 0, 1);
 	images_to_window(g, 0, 2);
 	mlx_string_put(g->mlx_id, g->win_id, 7, 15, 0x00004400, "Steps:");
-	mlx_string_put(g->mlx_id, g->win_id, 45, 15, 0x00004400, steps);
+	mlx_string_put(g->mlx_id, g->win_id, 45 + ADJUST, 15, 0x00004400, steps);
 	free(steps);
 }
 
