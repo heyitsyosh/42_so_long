@@ -55,7 +55,7 @@ W = W=13
 A = A=0
 S = S=1
 D = D=2
-FRAMERATE = FRAMERATE=200
+FRAMERATE = FRAMERATE=700
 ADJUST = ADJUST=20
 MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11 -framework OpenGL -framework Appkit $(MLXDIR)/libmlx_Darwin.a
 endif
