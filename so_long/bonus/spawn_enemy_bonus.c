@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:30:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 15:45:22 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/20 06:37:52 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	check_adjacent(size_t y, size_t x, t_game *g)
 	if (g->map[y][x] && ft_strchr("C0", g->map[y][x]))
 	{
 		g->enemy_spawned = true;
-		if (g->map[y][x] == 'C')
+		if (g->map[y][x - 1] == 'C')
 			g->enemy_on_coin = true;
 		g->map[y][x - 1] = 'S';
 		g->enemy_x = x - 1;

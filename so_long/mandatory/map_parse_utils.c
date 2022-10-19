@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:10:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/15 03:08:51 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/20 05:30:21 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,7 @@ void	free_map(char **map)
 
 void	print_map_error(t_game *g)
 {
-	if (g->map_error == WRONG_MAP_SHAPE)
-		print_err_and_exit("wrong map shape");
-	else if (g->map_error == INVALID_MAP_FORMATTING)
+	if (g->map_error == INVALID_MAP_FORMATTING)
 		print_err_and_exit("invalid map formatting");
 	else if (g->map_error == MALLOC_FAIL)
 		print_err_and_exit("malloc failure");

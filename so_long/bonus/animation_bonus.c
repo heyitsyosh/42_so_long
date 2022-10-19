@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:50:32 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 15:33:42 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/20 06:36:51 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	put_special_disappear_frame(int frame, t_game *g)
 {
-	if (frame == 9000)
+	if (frame == FRAMERATE * 9)
 	{
 		ft_printf("----SUCCESS----\n");
 		close_game(g, 0);

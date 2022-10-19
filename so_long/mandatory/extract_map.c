@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:59:30 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 16:15:58 by myoshika         ###   ########.fr       */
+/*   Updated: 2022/10/20 05:30:11 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ void	extract_map(t_parse *p, t_game *g)
 		extracted = ft_strjoin_with_free(extracted, "\n", 1);
 	}
 	check_num_of_cep(g);
-	check_if_rectangle(g);
 	check_basic_requirements(g);
 	split_extracted_line(extracted, g);
 	free(extracted);
