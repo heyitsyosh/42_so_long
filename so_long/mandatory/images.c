@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:34:57 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 02:44:08 by myoshika         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:11:26 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,4 +108,17 @@ void	make_more_images(t_game *g)
 			"./images/player/disappear/7.xpm", &x, &y);
 	g->i->viii = mlx_xpm_file_to_image(g->mlx_id,
 			"./images/player/disappear/8.xpm", &x, &y);
+}
+
+bool	check_if_images_created(t_image *images)
+{
+	if (!images->coin_front || !images->coin_left || !images->coin_right
+		|| !images->coin_side || !images->empty || !images->wall
+		|| !images->exit || !images->p_front || !images->p_left
+		|| !images->p_right || !images->portal_front || !images->portal_left
+		|| !images->portal_right || !images->i_left || !images->i_right
+		|| !images->ii || !images->iii || !images->iv || !images->v
+		|| !images->vi || !images->vii || !images->viii)
+		return (false);
+	return (true);
 }

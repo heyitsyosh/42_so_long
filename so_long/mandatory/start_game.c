@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:17:23 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/15 03:08:59 by myoshika         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:12:38 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,21 +36,15 @@ void	start_game(t_game *g)
 {
 	g->mlx_id = mlx_init();
 	if (!g->mlx_id)
-	{
-		free_map(g->map);
 		print_err_and_exit("mlx connection failure");
-	}
 	g->win_id = mlx_new_window(g->mlx_id, WIDTH * g->map_width,
 			HEIGHT * g->map_height, "so_long");
 	g->i = malloc(sizeof(t_image));
 	if (!g->win_id || !g->i)
-	{
-		free_map(g->map);
-		free(g->i);
-		free(g->mlx_id);
 		print_err_and_exit("mlx window failure");
-	}
 	make_images(g);
 	make_more_images(g);
+	if (!check_if_images_created(g->i))
+		print_err_and_exit("image creation failure");
 	put_full_map(g);
 }

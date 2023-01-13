@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 22:40:53 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 01:10:02 by myoshika         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:02:54 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,5 @@ void	check_if_playable(t_game *g)
 		g->map_error = NO_VALID_PATH;
 	free_map(g->map_dup);
 	if (g->map_error == NO_VALID_PATH)
-	{
-		free_map(g->map);
 		print_err_and_exit("map not playable");
-	}
 }
