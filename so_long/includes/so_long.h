@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:30:45 by myoshika         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:11:44 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void	put_steps_on_screen(t_game *g);
 
 void	make_images(t_game *g);
 void	make_more_images(t_game *g);
+bool	check_if_images_created(t_image *images);
 void	images_to_window(t_game *g, size_t y, size_t x);
 void	more_images_to_window(t_game *g, size_t y, size_t x);
 
