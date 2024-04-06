@@ -21,6 +21,8 @@ sudo apt install xorg libxext-dev libbsd-dev
 ```
 #### MacOS:
 ⚠️ You must comment out `mlx_destroy_display()` from code.  
+(Jump to location: [mandatory](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/mandatory/close_game.c#L47), 
+[bonus](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/bonus/close_game_bonus.c#L68))
 ```C
 brew update && brew upgrade && brew install Xquartz
 xeyes //test installation
@@ -52,7 +54,7 @@ make re     //delete .o and executable, recompile
 ```
 
 ## Usage:  
-```C
+```Java
 ./so_long <path_to_map>
 //Example:
 ./so_long ./maps/map3.ber
