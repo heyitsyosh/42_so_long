@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 09:59:49 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:40:10 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:55:28 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "libft.h"
 
 int	ft_max(int a, int b)
 {

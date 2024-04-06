@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:46:50 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 05:00:48 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:58:18 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdbool.h>
 # include <stdarg.h>
-# include "./libft.h"
+# include <stddef.h> //size_t, NULL
 
 typedef struct s_printfinfo
 {

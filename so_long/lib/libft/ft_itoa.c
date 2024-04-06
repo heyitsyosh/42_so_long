@@ -6,18 +6,19 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 23:28:23 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:40:35 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:57:00 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include <stdlib.h> //malloc
+#include "libft.h"
 
 static int	digit_count(int n)
 {
 	int	digits;
 
 	digits = 0;
-	if (n < 0)
+	if (n < 0 || n == 0)
 		digits++;
 	while (n != 0)
 	{
@@ -56,8 +57,6 @@ char	*ft_itoa(int n)
 	long	buf;
 	int		digits;	
 
-	if (n == 0)
-		return (ft_strdup("0"));
 	digits = digit_count(n);
 	arr = (char *)malloc(digits + 1);
 	buf = (long)n;

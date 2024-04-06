@@ -6,11 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:49:13 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 05:04:01 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:33:04 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/get_next_line.h"
+#include <stdlib.h> //malloc
+#include "get_next_line.h"
+#include "libft.h"
 
 static void	ft_strlcpy_no_ret(char *dst, char *src, size_t dstsize)
 {

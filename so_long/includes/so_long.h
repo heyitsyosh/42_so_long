@@ -6,16 +6,17 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2023/01/14 01:11:44 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:00:53 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <stdbool.h>
+# include <stddef.h> //size_t, NULL
+
 # include "../lib/minilibx-linux/mlx.h"
-# include "./ft_printf.h"
-# include "./get_next_line.h"
 
 # define MAP_OK 1
 # define INVALID_MAP_FORMATTING 2
@@ -58,6 +59,23 @@ typedef struct s_image{
 	void	*vi;
 	void	*vii;
 	void	*viii;
+	void	*s_l_i;
+	void	*s_l_ii;
+	void	*s_l_iii;
+	void	*s_l_iv;
+	void	*s_l_v;
+	void	*s_l_vi;
+	void	*s_l_vii;
+	void	*s_l_viii;
+	void	*s_r_i;
+	void	*s_r_ii;
+	void	*s_r_iii;
+	void	*s_r_iv;
+	void	*s_r_v;
+	void	*s_r_vi;
+	void	*s_r_vii;
+	void	*s_r_viii;
+	void	*enemy;
 }	t_image;
 
 typedef struct s_game{
@@ -74,6 +92,11 @@ typedef struct s_game{
 	size_t	player_y;
 	size_t	exit_x;
 	size_t	exit_y;
+	bool	enemy_on_coin;
+	int		e_step;
+	bool	enemy_spawned;
+	size_t	enemy_x;
+	size_t	enemy_y;
 	size_t	total_steps;
 	bool	reachable_exit;
 	size_t	reachable_collectibles;
@@ -115,6 +138,8 @@ void	print_err_and_exit(char *err_message);
 void	free_map(char **map);
 void	print_map_error(t_game *g);
 
+void	spawn_enemy(t_game *g);
+
 void	start_game(t_game *g);
 int		put_full_map(t_game *g);
 void	images_to_window(t_game *g, size_t y, size_t x);
@@ -123,11 +148,12 @@ void	put_steps_on_screen(t_game *g);
 
 void	make_images(t_game *g);
 void	make_more_images(t_game *g);
-bool	check_if_images_created(t_image *images);
+void	make_enemy_images(t_game *g);
 void	images_to_window(t_game *g, size_t y, size_t x);
 void	more_images_to_window(t_game *g, size_t y, size_t x);
 
 int		animation(t_game *g);
+void	move_enemy(int frame, t_game *g);
 
 int		process_pressed_key(int keycode, t_game *g);
 void	step_to_portal(char player, int y, int x, t_game *g);

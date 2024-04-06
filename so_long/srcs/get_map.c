@@ -6,11 +6,15 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 23:36:28 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:51:07 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <fcntl.h> //open, O_RDONLY
+#include <stdlib.h> //free
+#include "get_next_line.h"
+#include "so_long.h"
+#include "libft.h"
 
 static void	init_p_and_g(t_parse *p, t_game *g)
 {
@@ -20,6 +24,8 @@ static void	init_p_and_g(t_parse *p, t_game *g)
 	g->num_of_exits = 0;
 	g->map_width = 0;
 	g->map_height = 0;
+	g->enemy_on_coin = false;
+	g->enemy_spawned = false;
 	g->total_steps = 0;
 	g->reachable_exit = false;
 	g->reachable_collectibles = 0;

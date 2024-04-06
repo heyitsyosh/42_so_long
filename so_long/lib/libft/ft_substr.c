@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 23:29:27 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:38:50 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:50:48 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include <stdlib.h> //malloc
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

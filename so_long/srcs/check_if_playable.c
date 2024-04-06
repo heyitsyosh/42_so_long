@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 22:40:53 by myoshika          #+#    #+#             */
-/*   Updated: 2023/01/14 01:02:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:04:49 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 static bool	check_square(size_t y, size_t x, t_game *g)
 {
@@ -43,5 +43,8 @@ void	check_if_playable(t_game *g)
 		g->map_error = NO_VALID_PATH;
 	free_map(g->map_dup);
 	if (g->map_error == NO_VALID_PATH)
+	{
+		free_map(g->map);
 		print_err_and_exit("map not playable");
+	}
 }

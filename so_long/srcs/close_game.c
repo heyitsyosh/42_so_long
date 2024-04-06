@@ -6,13 +6,34 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:03:06 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/19 16:12:33 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:10:46 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <stdlib.h> //exit, free
+#include "so_long.h"
 
-void	destroy_images(t_game *g)
+static void	destroy_more_images(t_game *g)
+{
+	mlx_destroy_image(g->mlx_id, g->i->s_l_i);
+	mlx_destroy_image(g->mlx_id, g->i->s_l_ii);
+	mlx_destroy_image(g->mlx_id, g->i->s_l_iii);
+	mlx_destroy_image(g->mlx_id, g->i->s_l_iv);
+	mlx_destroy_image(g->mlx_id, g->i->s_l_v);
+	mlx_destroy_image(g->mlx_id, g->i->s_l_vi);
+	mlx_destroy_image(g->mlx_id, g->i->s_l_vii);
+	mlx_destroy_image(g->mlx_id, g->i->s_l_viii);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_i);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_ii);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_iii);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_iv);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_v);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_vi);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_vii);
+	mlx_destroy_image(g->mlx_id, g->i->s_r_viii);
+}
+
+static void	destroy_images(t_game *g)
 {
 	mlx_destroy_image(g->mlx_id, g->i->coin_front);
 	mlx_destroy_image(g->mlx_id, g->i->coin_left);
@@ -36,6 +57,7 @@ void	destroy_images(t_game *g)
 	mlx_destroy_image(g->mlx_id, g->i->vi);
 	mlx_destroy_image(g->mlx_id, g->i->vii);
 	mlx_destroy_image(g->mlx_id, g->i->viii);
+	destroy_more_images(g);
 }
 
 int	close_game(t_game *g, int exit_status)
