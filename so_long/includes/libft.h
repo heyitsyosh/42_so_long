@@ -6,17 +6,14 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 00:29:25 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 17:26:36 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:58:05 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
+# include <stddef.h> //size_t, NULL
 
 typedef struct s_list
 {

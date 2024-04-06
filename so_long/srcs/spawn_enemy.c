@@ -1,16 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spawn_enemy_bonus.c                                :+:      :+:    :+:   */
+/*   spawn_enemy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:30:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:37:52 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:09:53 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include "ft_printf.h"
+#include "so_long.h"
+#include "libft.h"
 
 static void	check_adjacent(size_t y, size_t x, t_game *g)
 {

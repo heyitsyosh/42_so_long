@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   skip_map_bonus.c                                   :+:      :+:    :+:   */
+/*   skip_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:08:12 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 02:10:36 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:04:26 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include "so_long.h"
+#include "libft.h"
 
 static char	*strrchr_from_ptr(char *end, char *start, int c)
 {

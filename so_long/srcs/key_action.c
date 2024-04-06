@@ -1,16 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key_action_bonus.c                                 :+:      :+:    :+:   */
+/*   key_action.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:41:53 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/19 17:01:13 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:08:55 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include <limits.h> //INT_MAX
+#include <stdlib.h> //free
+#include "ft_printf.h"
+#include "so_long.h"
+#include "libft.h"
 
 static void	check_enemy(int y, int x, t_game *g)
 {

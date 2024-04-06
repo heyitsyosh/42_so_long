@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   extract_map_bonus.c                                :+:      :+:    :+:   */
+/*   extract_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:59:30 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 05:30:06 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:06:40 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include <stdlib.h> //free
+#include "get_next_line.h"
+#include "so_long.h"
+#include "libft.h"
 
 static void	init_l(t_line *l)
 {

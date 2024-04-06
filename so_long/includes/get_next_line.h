@@ -6,20 +6,18 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:49:15 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 05:06:27 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 04:46:55 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# include <fcntl.h>
-# include <sys/stat.h>
-# include <sys/types.h>
-# include "./libft.h"
-
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
+# elif BUFFER_SIZE < 1
+#	undef BUFFER_SIZE
+#	define BUFFER_SIZE 1024
 # endif
 
 # define FREE_NONE 0
