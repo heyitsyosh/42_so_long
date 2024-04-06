@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 02:39:07 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:37:04 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 int	main(int argc, char **argv)
 {

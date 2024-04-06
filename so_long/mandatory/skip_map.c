@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 21:08:12 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/07 22:54:35 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:28:50 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
+#include "libft.h"
 
 static char	*strrchr_from_ptr(char *end, char *start, int c)
 {

@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 22:53:41 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:39:48 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:54:51 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
 {

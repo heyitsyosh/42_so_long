@@ -6,11 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 02:09:44 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:35:12 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:32:51 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include "so_long_bonus.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 static void	*set_l_enemy_frame(int frame, t_game *g)
 {

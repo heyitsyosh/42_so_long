@@ -6,11 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 00:30:00 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:37:52 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:37:33 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include "so_long_bonus.h"
+#include "ft_printf.h"
+#include "libft.h"
 
 static void	check_adjacent(size_t y, size_t x, t_game *g)
 {

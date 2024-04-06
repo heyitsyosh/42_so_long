@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:34:57 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 16:14:59 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:32:15 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include "so_long_bonus.h"
 
 void	make_images(t_game *g)
 {

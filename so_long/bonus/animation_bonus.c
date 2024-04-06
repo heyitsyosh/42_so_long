@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:50:32 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:36:51 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:33:12 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include "so_long_bonus.h"
+#include "ft_printf.h"
 
 static void	put_special_disappear_frame(int frame, t_game *g)
 {

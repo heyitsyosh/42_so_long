@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 07:42:47 by myoshika          #+#    #+#             */
-/*   Updated: 2022/09/22 22:40:44 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:57:13 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "libft.h"
 
 int	ft_isascii(int c)
 {

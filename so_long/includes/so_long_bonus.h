@@ -6,16 +6,17 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 07:48:07 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:35:25 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:26:19 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
+# include <stdbool.h>
+# include <stddef.h> //size_t, NULL
+
 # include "../lib/minilibx-linux/mlx.h"
-# include "./ft_printf.h"
-# include "./get_next_line.h"
 
 # define MAP_OK 1
 # define INVALID_MAP_FORMATTING 2

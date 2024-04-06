@@ -6,11 +6,14 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/04 22:26:04 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/15 05:08:18 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:26:59 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <stdlib.h> //exit, EXIT_SUCCESS
+#include "ft_printf.h"
+#include "so_long.h"
+#include "libft.h"
 
 void	print_err_and_exit(char *err_message)
 {

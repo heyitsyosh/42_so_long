@@ -6,11 +6,15 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 16:10:46 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/08 23:36:28 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:27:54 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <fcntl.h> //open, O_RDONLY
+#include <stdlib.h> //free
+#include "get_next_line.h"
+#include "so_long.h"
+#include "libft.h"
 
 static void	init_p_and_g(t_parse *p, t_game *g)
 {

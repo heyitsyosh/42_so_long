@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:03:06 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/19 16:12:33 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:27:31 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <stdlib.h> //exit, free
+#include "so_long.h"
 
 void	destroy_images(t_game *g)
 {

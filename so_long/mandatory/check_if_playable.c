@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 22:40:53 by myoshika          #+#    #+#             */
-/*   Updated: 2023/01/14 01:02:54 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:27:07 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 static bool	check_square(size_t y, size_t x, t_game *g)
 {

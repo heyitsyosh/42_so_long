@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 18:03:06 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 02:42:00 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:32:56 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include <stdlib.h> //exit, free
+#include "so_long_bonus.h"
 
 static void	destroy_more_images(t_game *g)
 {

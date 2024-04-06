@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:17:06 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/03 18:53:28 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 02:53:46 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/libft.h"
+#include "libft.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

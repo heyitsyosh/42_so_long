@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:17:23 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/09 03:05:12 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:37:15 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include <stdlib.h> //malloc, free
+#include "so_long_bonus.h"
 
 void	more_images_to_window(t_game *g, size_t y, size_t x)
 {

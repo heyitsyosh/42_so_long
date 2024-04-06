@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:50:32 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:44:20 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:26:52 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "ft_printf.h"
+#include "so_long.h"
 
 static void	put_disappear_first_frame(t_game *g)
 {

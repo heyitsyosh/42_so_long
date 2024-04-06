@@ -6,11 +6,13 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:10:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 06:32:58 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:32:22 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include <stdlib.h> //free
+#include "so_long_bonus.h"
+#include "libft.h"
 
 void	split_extracted_line(char *extracted, t_game *g)
 {

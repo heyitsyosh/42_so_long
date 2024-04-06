@@ -14,21 +14,23 @@ FILES = so_long\
 		key_action_utils\
 		animation\
 		close_game
-SRCS = $(foreach src,$(FILES),./mandatory/$(src).c)
 BONUS_FILES = $(FILES) spawn_enemy enemy
-BONUS_SRCS = $(foreach bonus_src,$(BONUS_FILES),./bonus/$(bonus_src)_bonus.c)
 
-OBJS = $(SRCS:.c=.o)
-B_OBJS = $(BONUS_SRCS:.c=.o)
+OBJS = $(addprefix $(OBJSDIR), $(addsuffix .o, $(FILES)))
+B_OBJS = $(addprefix $(OBJSDIR), $(addsuffix _bonus.o, $(BONUS_FILES)))
+
+OBJSDIR = objs/
+LIBFTDIR = ./lib/libft/
+PRINTFDIR = ./lib/printf/
+GNLDIR = ./lib/gnl/
+MLXDIR = ./lib/minilibx-linux/
 
 ifeq ($(MAKECMDGOALS),bonus)
 OBJS = $(B_OBJS)
+SRCSDIR = bonus/
+else
+SRCSDIR = mandatory/
 endif
-
-LIBFTDIR = ./lib/libft
-PRINTFDIR = ./lib/printf
-GNLDIR = ./lib/gnl
-MLXDIR = ./lib/minilibx-linux
 
 FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
 GNL = ./lib/gnl/get_next_line.a 
@@ -48,7 +50,7 @@ S = S=115
 D = D=100
 FRAMERATE = FRAMERATE=1000
 ADJUST = ADJUST=0
-MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11 $(MLXDIR)/libmlx.a
+MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11 $(MLXDIR)libmlx.a
 else
 ESC = ESC=53
 W = W=13
@@ -57,7 +59,7 @@ S = S=1
 D = D=2
 FRAMERATE = FRAMERATE=700
 ADJUST = ADJUST=20
-MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11 -framework OpenGL -framework Appkit $(MLXDIR)/libmlx_Darwin.a
+MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11 -framework OpenGL -framework Appkit $(MLXDIR)libmlx_Darwin.a
 endif
 
 #--------------------------------------------------------------------------#
@@ -70,8 +72,11 @@ $(NAME): $(OBJS)
 	make -C $(MLXDIR)
 	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
-%.o: %.c
+$(OBJSDIR)%.o: $(SRCSDIR)%.c | $(OBJSDIR)
 	$(CC) $(CFLAGS) $(DEFINE_KEYS) -c -o $@ $<
+
+$(OBJSDIR):
+	mkdir -p $(OBJSDIR)
 
 bonus: all
 
@@ -79,7 +84,7 @@ clean:
 	make clean -C $(PRINTFDIR)
 	make clean -C $(GNLDIR)
 	make clean -C $(MLXDIR)
-	$(RM) $(OBJS) $(B_OBJS)
+	$(RM) -r $(OBJSDIR)
 
 fclean: clean
 	make fclean -C $(PRINTFDIR)
@@ -88,4 +93,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all bonus clean fclean re

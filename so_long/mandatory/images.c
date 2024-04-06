@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 14:34:57 by myoshika          #+#    #+#             */
-/*   Updated: 2023/01/14 01:11:26 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:28:02 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	more_images_to_window(t_game *g, size_t y, size_t x)
 {

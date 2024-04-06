@@ -6,11 +6,12 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 14:17:23 by myoshika          #+#    #+#             */
-/*   Updated: 2023/01/14 01:12:38 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:36:54 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <stdlib.h> //malloc, free
+#include "so_long.h"
 
 int	put_full_map(t_game *g)
 {

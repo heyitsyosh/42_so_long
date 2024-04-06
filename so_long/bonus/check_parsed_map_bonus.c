@@ -6,11 +6,11 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 20:42:10 by myoshika          #+#    #+#             */
-/*   Updated: 2022/10/20 05:20:27 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/07 06:32:58 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long_bonus.h"
+#include "so_long_bonus.h"
 
 void	check_num_of_cep(t_game *g)
 {
