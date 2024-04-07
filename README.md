@@ -11,31 +11,28 @@ You'll learn about textures, sprites and tiles.</p>*
 Use `WASD` keys to move the player.  
 `Esc` closes the game.  
 The objective is to collect all collectibles and reach the exit.   
-(In bonus implementation, enemy patrol snakes are spawned randomly.)
+In bonus implementation, enemy patrol snakes are spawned randomly.
 
 ## Requirements:
+To confirm that requirements are met, use the command `xeyes`. 
+#### MacOS:
+⚠️ You must comment out `mlx_destroy_display()` from code.  
+*(Jump to location: [mandatory](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/mandatory/close_game.c#L47), 
+[bonus](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/bonus/close_game_bonus.c#L68))*
+```C
+brew update && brew upgrade && brew install Xquartz
+```
 #### Linux:
 ```
 sudo apt update && sudo apt upgrade
 sudo apt install xorg libxext-dev libbsd-dev
 ```
-#### MacOS:
-⚠️ You must comment out `mlx_destroy_display()` from code.  
-(Jump to location: [mandatory](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/mandatory/close_game.c#L47), 
-[bonus](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/bonus/close_game_bonus.c#L68))
-```C
-brew update && brew upgrade && brew install Xquartz
-xeyes //test installation
-```
 #### WSL:
-First, fulfill Linux requirements.  
+First, fulfill Linux requirements as specified above.  
 Then install and launch `VcXsrv` or `Xming`.  
-Keep configuration settings default *(multiple windows, start no client, ✔ clipboard, ✔ no access control)*.  
+Keep configuration settings default *(multiple windows, start no client, ✔ no access control)*.  
 Set additional parameters to `-ac -nowgl`.  
 Always launch before executing the game.
-```C
-xeyes //test installation
-```
 
 ## Set-up:
 Clone repo, `cd` into directory, then use any Makefile command.  
