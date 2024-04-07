@@ -12,35 +12,32 @@ The objective is to collect all collectibles and reach the exit.
 Be careful! You lose if you bump into an enemy patrol snake.
 
 ## Requirements:
+To confirm that requirements are met, use the command `xeyes`.  
+#### MacOS:
+⚠️ You must comment out [`mlx_destroy_display()`](https://github.com/heyitsyosh/42_so_long/blob/453383613984af318a251c923aea279e766b842f/so_long/srcs/close_game.c#L68) from code.  
+```C
+brew update && brew upgrade && brew install Xquartz
+```
 #### Linux:
 ```
 sudo apt update && sudo apt upgrade
 sudo apt install xorg libxext-dev libbsd-dev
 ```
-#### MacOS:
-⚠️ You must comment out [`mlx_destroy_display()`](https://github.com/heyitsyosh/42_so_long/blob/453383613984af318a251c923aea279e766b842f/so_long/srcs/close_game.c#L68) from code.  
-```C
-brew update && brew upgrade && brew install Xquartz
-xeyes //test installation
-```
 #### WSL:
-First, fulfill Linux requirements.  
+First, fulfill Linux requirements as specified above.  
 Then install and launch `XLaunch` or `Xming`.  
-Keep configuration settings default *(multiple windows, start no client, ✔ clipboard, ✔ no access control)*.  
+Keep configuration settings default *(multiple windows, start no client, ✔ no access control)*.  
 Set additional parameters to `-ac -nowgl`.  
-```C
-xeyes //test installation
-```
 
 ## Set-up:
 Clone repo, `cd` into directory, then use any Makefile command.  
 ```
 git clone --recursive https://github.com/heyitsyosh/42_so_long.git
 cd 42_so_long && cd so_long
-```   
+```  
 
 #### Makefile Commands:
-```C
+```Java
 make        //compile executable (./so_long)
 make clean  //delete .o
 make fclean //delete .o and executable
