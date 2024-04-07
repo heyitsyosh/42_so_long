@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:49:15 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/08 07:05:26 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/08 07:36:08 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1024
 # elif BUFFER_SIZE < 1
-#	undef BUFFER_SIZE
-#	define BUFFER_SIZE 1024
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
 # endif
 
 # define FREE_NONE 0
