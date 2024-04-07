@@ -1,5 +1,17 @@
 NAME = so_long
 
+OBJSDIR = objs/
+LIBFTDIR = ./lib/libft/
+PRINTFDIR = ./lib/printf/
+GNLDIR = ./lib/gnl/
+MLXDIR = ./lib/minilibx-linux/
+
+ifeq ($(MAKECMDGOALS),bonus)
+SRCSDIR = bonus/
+else
+SRCSDIR = mandatory/
+endif
+
 FILES = so_long\
 		check_args\
 		get_map\
@@ -19,23 +31,15 @@ BONUS_FILES = $(FILES) spawn_enemy enemy
 OBJS = $(addprefix $(OBJSDIR), $(addsuffix .o, $(FILES)))
 B_OBJS = $(addprefix $(OBJSDIR), $(addsuffix _bonus.o, $(BONUS_FILES)))
 
-OBJSDIR = objs/
-LIBFTDIR = ./lib/libft/
-PRINTFDIR = ./lib/printf/
-GNLDIR = ./lib/gnl/
-MLXDIR = ./lib/minilibx-linux/
-
 ifeq ($(MAKECMDGOALS),bonus)
 OBJS = $(B_OBJS)
-SRCSDIR = bonus/
-else
-SRCSDIR = mandatory/
 endif
 
 FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
 GNL = ./lib/gnl/get_next_line.a 
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+CFLAGS = -Wall -Wextra -Werror 
+INCLUDES = -I ./includes/
 DEFINE_KEYS = -D $(ESC) -D $(W) -D $(A) -D $(S) -D $(D) -D $(FRAMERATE) -D $(ADJUST)
 
 #--------------------------------------------------------------------------#
@@ -70,10 +74,10 @@ $(NAME): $(OBJS)
 	make -C $(PRINTFDIR)
 	make -C $(GNLDIR)
 	make -C $(MLXDIR)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
 $(OBJSDIR)%.o: $(SRCSDIR)%.c | $(OBJSDIR)
-	$(CC) $(CFLAGS) $(DEFINE_KEYS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(INCLUDES) $(DEFINE_KEYS) -c -o $@ $<
 
 $(OBJSDIR):
 	mkdir -p $(OBJSDIR)
@@ -84,7 +88,7 @@ clean:
 	make clean -C $(PRINTFDIR)
 	make clean -C $(GNLDIR)
 	make clean -C $(MLXDIR)
-	$(RM) -r $(OBJSDIR)
+	rm -rf $(OBJSDIR)
 
 fclean: clean
 	make fclean -C $(PRINTFDIR)

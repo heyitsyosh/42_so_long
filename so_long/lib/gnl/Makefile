@@ -1,10 +1,10 @@
 NAME = get_next_line.a
 
-OBJSDIR = objs/
-LIBFTDIR = ../libft/objs/
+OBJS_DIR = objs/
+LIBFTOBJS_DIR = ../libft/objs/
 
-SRCS = get_next_line.c get_next_line_utils.c
-OBJS := $(SRCS:%.c=$(OBJSDIR)%.o)
+SRCS = get_next_line get_next_line_utils
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS)))
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ../../includes/
@@ -13,20 +13,21 @@ INCLUDES = -I ../../includes/
 
 all: $(NAME)
 
-$(OBJSDIR):
-	mkdir -p $(OBJSDIR)
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
 
-$(OBJSDIR)%.o: %.c | $(OBJSDIR)
+$(OBJS_DIR)%.o: %.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	ar rcs $@ $(LIBFTDIR)ft_strlen.o $(LIBFTDIR)ft_safe_free.o $(LIBFTDIR)ft_strchr.o $^
+	ar rcs $@ $(LIBFTOBJS_DIR)ft_strlen.o $(LIBFTOBJS_DIR)ft_safe_free.o \
+	$(LIBFTOBJS_DIR)ft_strchr.o $^
 
 clean:
-	${RM} -r $(OBJSDIR)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	${RM} $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
