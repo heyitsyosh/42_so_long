@@ -11,7 +11,7 @@ SRCS = ft_printf\
 OBJS = $(addprefix $(OBJS_DIR),  $(addsuffix .o, $(SRCS)))
 
 CFLAGS = -Wall -Wextra -Werror
-INCLUDES = -I ../../includes
+INCLUDES = -I ../../includes/
 
 # **************************************************************************** #
 

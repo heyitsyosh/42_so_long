@@ -27,7 +27,8 @@ MLX_DIR = ./lib/minilibx-linux/
 FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTF_DIR) -lftprintf
 GNL = ./lib/gnl/get_next_line.a
 
-CFLAGS = -Wall -Wextra -Werror -I ./includes
+CFLAGS = -Wall -Wextra -Werror 
+INCLUDES = -I ./includes/
 DEFINE_KEYS = -D $(ESC) -D $(W) -D $(A) -D $(S) -D $(D) -D $(FRAMERATE) -D $(ADJUST)
 
 #--------------------------------------------------------------------------#
@@ -62,13 +63,13 @@ $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)
 
 $(OBJS_DIR)%.o: ./srcs/%.c | $(OBJS_DIR)
-	$(CC) $(CFLAGS) $(DEFINE_KEYS) -c -o $@ $<
+	$(CC) $(CFLAGS) $(INCLUDES) $(DEFINE_KEYS) -c -o $@ $<
 
 $(NAME): $(OBJS)
 	make -C $(PRINTF_DIR)
 	make -C $(GNL_DIR)
 	make -C $(MLX_DIR)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
 clean:
 	make clean -C $(PRINTF_DIR)

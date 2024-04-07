@@ -3,8 +3,8 @@ NAME = get_next_line.a
 OBJS_DIR = objs/
 LIBFTOBJS_DIR = ../libft/objs/
 
-SRCS = get_next_line.o get_next_line_utils.o
-OBJS := $(SRCS:%.c=$(OBJSDIR)%.o)
+SRCS = get_next_line get_next_line_utils
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS)))
 
 CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ../../includes/
