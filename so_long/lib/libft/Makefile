@@ -50,6 +50,7 @@ LST_SRCS = ft_lstnew\
 		ft_lstmap
 
 OBJS_DIR = objs/
+
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(SRCS)))
 LST_OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(LST_SRCS)))
 
@@ -79,8 +80,8 @@ clean:
 	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re list
+.PHONY: all list clean fclean re

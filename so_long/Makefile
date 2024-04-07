@@ -16,17 +16,16 @@ FILES = so_long\
 		spawn_enemy\
 		enemy\
 		close_game
-SRCS = $(foreach src,$(FILES),./srcs/$(src).c)
 OBJS = $(foreach obj,$(FILES),./objs/$(obj).o)
 
-OBJSDIR = objs/
-LIBFTDIR = ./lib/libft/
-PRINTFDIR = ./lib/printf/
-GNLDIR = ./lib/gnl/
-MLXDIR = ./lib/minilibx-linux/
+OBJS_DIR = objs/
+LIBFT_DIR = ./lib/libft/
+PRINTF_DIR = ./lib/printf/
+GNL_DIR = ./lib/gnl/
+MLX_DIR = ./lib/minilibx-linux/
 
-FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTFDIR) -lftprintf
-GNL = ./lib/gnl/get_next_line.a 
+FT_PRINTF = ./lib/printf/libftprintf.a -L$(PRINTF_DIR) -lftprintf
+GNL = ./lib/gnl/get_next_line.a
 
 CFLAGS = -Wall -Wextra -Werror -I ./includes
 DEFINE_KEYS = -D $(ESC) -D $(W) -D $(A) -D $(S) -D $(D) -D $(FRAMERATE) -D $(ADJUST)
@@ -43,7 +42,7 @@ S = S=115
 D = D=100
 FRAMERATE = FRAMERATE=1000
 ADJUST = ADJUST=0
-MLX = -I $(MLXDIR) -L$(MLXDIR) -lmlx -lXext -lX11 $(MLXDIR)libmlx.a
+MLX = -I $(MLX_DIR) -L$(MLX_DIR) -lmlx -lXext -lX11 $(MLX_DIR)libmlx.a
 else
 ESC = ESC=53
 W = W=13
@@ -52,34 +51,34 @@ S = S=1
 D = D=2
 FRAMERATE = FRAMERATE=700
 ADJUST = ADJUST=20
-MLX = -I $(MLXDIR) -L/usr/X11R6/lib -lmlx -lXext -lX11 -framework OpenGL -framework Appkit $(MLXDIR)libmlx_Darwin.a
+MLX = -I $(MLX_DIR) -L/usr/X11R6/lib -lmlx -lXext -lX11 -framework OpenGL -framework Appkit $(MLX_DIR)libmlx_Darwin.a
 endif
 
 #--------------------------------------------------------------------------#
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	make -C $(PRINTFDIR)
-	make -C $(GNLDIR)
-	make -C $(MLXDIR)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
 
-$(OBJSDIR)%.o: ./srcs/%.c | $(OBJSDIR)
+$(OBJS_DIR)%.o: ./srcs/%.c | $(OBJS_DIR)
 	$(CC) $(CFLAGS) $(DEFINE_KEYS) -c -o $@ $<
 
-$(OBJSDIR):
-	mkdir -p $(OBJSDIR)
+$(NAME): $(OBJS)
+	make -C $(PRINTF_DIR)
+	make -C $(GNL_DIR)
+	make -C $(MLX_DIR)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(FT_PRINTF) $(GNL) $(MLX)
 
 clean:
-	make clean -C $(PRINTFDIR)
-	make clean -C $(GNLDIR)
-	make clean -C $(MLXDIR)
-	$(RM) -r $(OBJSDIR)
+	make clean -C $(PRINTF_DIR)
+	make clean -C $(GNL_DIR)
+	make clean -C $(MLX_DIR)
+	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	make fclean -C $(PRINTFDIR)
-	make fclean -C $(GNLDIR)
+	make fclean -C $(PRINTF_DIR)
+	make fclean -C $(GNL_DIR)
 	$(RM) $(NAME)
 
 re: fclean all
