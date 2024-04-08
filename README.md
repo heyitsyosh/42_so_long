@@ -19,7 +19,7 @@ To confirm that requirements are met, use the command `xeyes`.
 brew update && brew upgrade && brew install Xquartz
 ```
 #### Linux:
-```
+```C
 sudo apt update && sudo apt upgrade
 sudo apt install xorg libxext-dev libbsd-dev
 ```
@@ -29,7 +29,7 @@ Then install and launch `XLaunch` or `Xming`.
 Keep configuration settings default *(multiple windows, start no client, ✔ no access control)*.  
 Set additional parameters to `-ac -nowgl`.  
 
-## Set-up:
+## Set-up/Compilation:
 Clone repo, `cd` into directory, then use any Makefile command.  
 ```
 git clone --recursive https://github.com/heyitsyosh/42_so_long.git
