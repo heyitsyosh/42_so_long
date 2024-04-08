@@ -30,7 +30,7 @@ Keep configuration settings default *(multiple windows, start no client, ✔ no 
 Set additional parameters to `-ac -nowgl`.  
 
 ## Set-up/Compilation:
-Clone repo with submodules, `cd` into directory, then use any Makefile command.  
+Clone repo with minilibx as submodule, `cd` into directory, then use any Makefile command.  
 ```
 git clone --recursive https://github.com/heyitsyosh/42_so_long.git
 cd 42_so_long && cd so_long
