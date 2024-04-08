@@ -19,11 +19,11 @@ To confirm that requirements are met, use the command `xeyes`.
 ⚠️ You must comment out `mlx_destroy_display()` from code.  
 *(Jump to location: [mandatory](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/mandatory/close_game.c#L47), 
 [bonus](https://github.com/heyitsyosh/42_so_long/blob/1b236d58b1c7453c179d63c15f88d920272e5c5d/so_long/bonus/close_game_bonus.c#L68))*
-```C
+```bash
 brew update && brew upgrade && brew install Xquartz
 ```
 #### Linux:
-```
+```bash
 sudo apt update && sudo apt upgrade
 sudo apt install xorg libxext-dev libbsd-dev
 ```
@@ -34,12 +34,12 @@ Keep configuration settings default *(multiple windows, start no client, ✔ no 
 Set additional parameters to `-ac -nowgl`.  
 Always launch before executing the game.
 
-## Set-up:
-Clone repo, `cd` into directory, then use any Makefile command.  
+## Set-up/Compilation:
+Clone repo with `--recursive` flag, `cd` into directory, then use any Makefile command.  
 ```
 git clone --recursive https://github.com/heyitsyosh/42_so_long.git
 cd 42_so_long && cd so_long
-```   
+```  
 
 #### Makefile Commands:
 ```C
