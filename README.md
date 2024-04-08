@@ -15,11 +15,11 @@ Be careful! You lose if you bump into an enemy patrol snake.
 To confirm that requirements are met, use the command `xeyes`.  
 #### MacOS:
 ⚠️ You must comment out [`mlx_destroy_display()`](https://github.com/heyitsyosh/42_so_long/blob/453383613984af318a251c923aea279e766b842f/so_long/srcs/close_game.c#L68) from code.  
-```C
+```bash
 brew update && brew upgrade && brew install Xquartz
 ```
 #### Linux:
-```C
+```bash
 sudo apt update && sudo apt upgrade
 sudo apt install xorg libxext-dev libbsd-dev
 ```
