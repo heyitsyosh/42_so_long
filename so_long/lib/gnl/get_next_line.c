@@ -6,7 +6,7 @@
 /*   By: myoshika <myoshika@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 16:49:10 by myoshika          #+#    #+#             */
-/*   Updated: 2024/04/08 07:08:11 by myoshika         ###   ########.fr       */
+/*   Updated: 2024/04/08 11:15:47 by myoshika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*get_next_line(int fd)
 	char		*ptr_to_nl;
 	static char	*saved[256];
 
-	if (fd < 0 || fd > 255)
+	if (fd < 0 || 256 <= fd)
 		return (NULL);
 	buf = (char *)malloc(BUFFER_SIZE + 1UL);
 	if (!buf)
