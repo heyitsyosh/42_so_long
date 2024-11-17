@@ -5,9 +5,14 @@
 *<p align="center">This project is a small 2D game with minilibx.<br>
 You'll learn about textures, sprites and tiles.</p>*
 
+<div align="center">
+    <img src="https://i.postimg.cc/BQXP075m/so-long.gif" alt="so long screen capture" width="400">
+</div>
+
 ## Description:
 Use `WASD` keys to move the player.  
-`Esc` closes the game.  
+`Esc` closes the game.
+
 The objective is to collect all collectibles and reach the exit.   
 Be careful! You lose if you bump into an enemy patrol snake.
 
