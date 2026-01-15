@@ -36,10 +36,14 @@ Set additional parameters to `-ac -nowgl`.
 
 ## Set-up/Compilation:
 Clone repo with `--recursive` flag, `cd` into directory, then use any Makefile command.  
-```
+```Java
 git clone --recursive https://github.com/heyitsyosh/42_so_long.git
+// or
+git submodule init
+git submodule update
+// then
 cd 42_so_long && cd so_long
-```  
+```
 
 #### Makefile Commands:
 ```Java
